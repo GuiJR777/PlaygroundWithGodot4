@@ -39,6 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="playground_with_godot_4"
+run/main_scene="res://scenes/leveis/main_menu.tscn"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
 config/icon="res://icon.svg"
 
