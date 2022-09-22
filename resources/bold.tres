@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://tpkjaiuml3dn"]
+
+[ext_resource type="FontFile" uid="uid://bssvid8nbjwch" path="res://assets/fonts/Oxanium-Bold.ttf" id="1_5ab65"]
+
+[resource]
+default_font = ExtResource("1_5ab65")
+default_font_size = 64

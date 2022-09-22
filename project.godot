@@ -1,0 +1,56 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+_global_script_classes=[{
+"base": "CharacterBody3D",
+"class": &"Dummy",
+"language": &"GDScript",
+"path": "res://scripts/characters/dummy.gd"
+}, {
+"base": "Node3D",
+"class": &"HumanoidBody",
+"language": &"GDScript",
+"path": "res://scripts/characters/commons/humanoid_body.gd"
+}, {
+"base": "Node3D",
+"class": &"HumanoidCharacter",
+"language": &"GDScript",
+"path": "res://scenes/defaults/default_humanoid.gd"
+}, {
+"base": "Control",
+"class": &"SkinSelectionControl",
+"language": &"GDScript",
+"path": "res://scripts/ui/ui_control_for_teste_1.gd"
+}]
+_global_script_class_icons={
+"Dummy": "",
+"HumanoidBody": "",
+"HumanoidCharacter": "",
+"SkinSelectionControl": ""
+}
+
+[application]
+
+config/name="playground_with_godot_4"
+config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Constants="*res://scripts/global/constants.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/fullscreen=true
+window/size/always_on_top=true
+window/size/window_width_override=1920
+window/size/window_height_override=1080

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5fxmjtyghlne"]
+
+[ext_resource type="Script" path="res://scripts/characters/exposition.gd" id="1_m7tt7"]
+[ext_resource type="PackedScene" uid="uid://c30nojxhuoxbh" path="res://scenes/defaults/default_humanoid.tscn" id="1_x3bg7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wjgwd"]
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_m7tt7")
+
+[node name="body" parent="." instance=ExtResource("1_x3bg7")]
+
+[node name="collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.33858, 0, 0, 0, 1.85274, 0, 0, 0, 1.08597, 0, 1.89613, 0.133136)
+shape = SubResource("CapsuleShape3D_wjgwd")
