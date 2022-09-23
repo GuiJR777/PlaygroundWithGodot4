@@ -10,4 +10,6 @@ As mecânicas podem ser acessadas na tela "Projetos" e os mini games na tela "Mi
 
 
 ## Projetos adicionados.
-- **Skin Changer**
+##### clique para acessar
+
+- [**Skin Changer:**   ✅](https://github.com/GuiJR777/PlaygroundWithGodot4/tree/master/scenes/skin_changer)
