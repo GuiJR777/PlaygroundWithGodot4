@@ -26,5 +26,7 @@ func _on_image_mouse_exited():
 
 
 func _on_image_button_up():
-	Global.previous_scene = get_path_to(get_tree().current_scene)
+	var selected_scene = get_tree().get_current_scene().get_scene_file_path()
+	Global.actual_page_index += 1
+	Global.previous_scenes.append(selected_scene)
 	get_tree().change_scene_to_file(scene_destiny)
