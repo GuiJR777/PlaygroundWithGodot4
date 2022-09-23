@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpi7sn3dmao02"]
+[gd_scene load_steps=16 format=3 uid="uid://bpi7sn3dmao02"]
 
 [ext_resource type="Texture2D" uid="uid://bq6c3gg11a8mw" path="res://assets/UI/backgrounds/main_background.png" id="1_5dwte"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_ei4ah"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c0htqmx0wbpj6" path="res://assets/UI/gameicons/PNG/Black/2x/menuGrid.png" id="3_mrv1r"]
 [ext_resource type="Texture2D" uid="uid://ciddxv2nm1vlr" path="res://assets/UI/gameicons/PNG/Black/2x/smaller.png" id="3_r5h4v"]
 [ext_resource type="Texture2D" uid="uid://bu1f13yo5ixwm" path="res://assets/UI/gameicons/PNG/White/2x/smaller.png" id="4_8fd15"]
+[ext_resource type="PackedScene" uid="uid://ctnl2hxsxcbi3" path="res://scenes/UI/components/button_with_hint.tscn" id="4_fh8p7"]
 [ext_resource type="Texture2D" uid="uid://calpmcbd8eb62" path="res://assets/UI/gameicons/PNG/White/2x/menuGrid.png" id="4_mpdu4"]
 [ext_resource type="Texture2D" uid="uid://wtem24u55rrw" path="res://assets/UI/gameicons/PNG/Black/2x/gamepad.png" id="5_mdnyq"]
 [ext_resource type="Texture2D" uid="uid://6fkg7mprwclf" path="res://assets/UI/gameicons/PNG/White/2x/gamepad.png" id="6_6fase"]
@@ -157,7 +158,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 4.00024
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 120
@@ -205,15 +206,20 @@ offset_right = 960.0
 offset_bottom = 924.0
 alignment = 1
 
-[node name="projects_button" type="TextureButton" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2"]
+[node name="projects_button" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2" instance=ExtResource("4_fh8p7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 296.0
 offset_top = 140.0
 offset_right = 396.0
 offset_bottom = 240.0
-size_flags_vertical = 4
+grow_horizontal = 1
+grow_vertical = 1
 texture_normal = ExtResource("3_mrv1r")
 texture_hover = ExtResource("4_mpdu4")
+text = "Projetos"
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2"]
 modulate = Color(1, 1, 1, 0)
@@ -225,15 +231,20 @@ offset_bottom = 191.0
 size_flags_vertical = 4
 theme_override_constants/separation = 160
 
-[node name="minigames_button" type="TextureButton" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2"]
+[node name="minigames_button" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2" instance=ExtResource("4_fh8p7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 564.0
 offset_top = 140.0
 offset_right = 664.0
 offset_bottom = 240.0
-size_flags_vertical = 4
+grow_horizontal = 1
+grow_vertical = 1
 texture_normal = ExtResource("5_mdnyq")
 texture_hover = ExtResource("6_6fase")
+text = "Mini Games"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -244,23 +255,30 @@ offset_bottom = 180.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="fullscreen" type="TextureButton" parent="MarginContainer/HBoxContainer2"]
+[node name="fullscreen" parent="MarginContainer/HBoxContainer2" instance=ExtResource("4_fh8p7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_right = 100.0
 offset_bottom = 100.0
+grow_horizontal = 1
+grow_vertical = 1
 texture_normal = ExtResource("3_r5h4v")
 texture_hover = ExtResource("4_8fd15")
+text = "Minimizar"
 
-[node name="close" type="TextureButton" parent="MarginContainer/HBoxContainer2"]
+[node name="close" parent="MarginContainer/HBoxContainer2" instance=ExtResource("4_fh8p7")]
 layout_mode = 2
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 104.0
 offset_right = 204.0
 offset_bottom = 100.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-size_flags_vertical = 0
 texture_normal = ExtResource("7_8pfwo")
 texture_hover = ExtResource("8_wuo1x")
+text = "Sair"
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
 libraries = {
