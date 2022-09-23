@@ -1,17 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpi7sn3dmao02"]
+[gd_scene load_steps=14 format=3 uid="uid://bpi7sn3dmao02"]
 
 [ext_resource type="Texture2D" uid="uid://bq6c3gg11a8mw" path="res://assets/UI/backgrounds/main_background.png" id="1_5dwte"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_ei4ah"]
 [ext_resource type="Texture2D" uid="uid://s4cu3r7tkwkl" path="res://assets/UI/backgrounds/logo-removebg.png" id="2_pccpv"]
-[ext_resource type="Texture2D" uid="uid://c0htqmx0wbpj6" path="res://assets/UI/gameicons/PNG/Black/2x/menuGrid.png" id="3_mrv1r"]
-[ext_resource type="Texture2D" uid="uid://ciddxv2nm1vlr" path="res://assets/UI/gameicons/PNG/Black/2x/smaller.png" id="3_r5h4v"]
-[ext_resource type="Texture2D" uid="uid://bu1f13yo5ixwm" path="res://assets/UI/gameicons/PNG/White/2x/smaller.png" id="4_8fd15"]
 [ext_resource type="PackedScene" uid="uid://ctnl2hxsxcbi3" path="res://scenes/UI/components/button_with_hint.tscn" id="4_fh8p7"]
-[ext_resource type="Texture2D" uid="uid://calpmcbd8eb62" path="res://assets/UI/gameicons/PNG/White/2x/menuGrid.png" id="4_mpdu4"]
 [ext_resource type="Texture2D" uid="uid://wtem24u55rrw" path="res://assets/UI/gameicons/PNG/Black/2x/gamepad.png" id="5_mdnyq"]
+[ext_resource type="Texture2D" uid="uid://dd58dfeh14fpc" path="res://assets/UI/gameicons/PNG/Black/2x/leaderboardsComplex.png" id="5_wbkqe"]
 [ext_resource type="Texture2D" uid="uid://6fkg7mprwclf" path="res://assets/UI/gameicons/PNG/White/2x/gamepad.png" id="6_6fase"]
-[ext_resource type="Texture2D" uid="uid://g6hdvn2t4r2o" path="res://assets/UI/gameicons/PNG/Black/2x/exit.png" id="7_8pfwo"]
-[ext_resource type="Texture2D" uid="uid://cga7rwj8rdnld" path="res://assets/UI/gameicons/PNG/White/2x/exit.png" id="8_wuo1x"]
+[ext_resource type="Texture2D" uid="uid://ynhbkphsvt8e" path="res://assets/UI/gameicons/PNG/White/2x/leaderboardsComplex.png" id="6_bvw1c"]
+[ext_resource type="PackedScene" uid="uid://b62a40dxi0mey" path="res://scenes/UI/components/fullscreen_button.tscn" id="9_ss1y4"]
+[ext_resource type="PackedScene" uid="uid://c2prqt4by5hd1" path="res://scenes/UI/components/close_button.tscn" id="11_fwfa5"]
 
 [sub_resource type="Animation" id="Animation_ux0i7"]
 length = 0.001
@@ -209,17 +207,28 @@ alignment = 1
 [node name="projects_button" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2" instance=ExtResource("4_fh8p7")]
 layout_mode = 2
 anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 296.0
-offset_top = 140.0
+offset_left = 276.0
+offset_top = 130.0
 offset_right = 396.0
-offset_bottom = 240.0
+offset_bottom = 250.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("3_mrv1r")
-texture_hover = ExtResource("4_mpdu4")
 text = "Projetos"
+
+[node name="VBoxContainer" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/projects_button" index="0"]
+layout_mode = 0
+
+[node name="button" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/projects_button/VBoxContainer" index="0"]
+layout_mode = 2
+texture_normal = ExtResource("5_wbkqe")
+texture_hover = ExtResource("6_bvw1c")
+
+[node name="hint" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/projects_button/VBoxContainer" index="1"]
+layout_mode = 2
 
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2"]
 modulate = Color(1, 1, 1, 0)
@@ -234,59 +243,73 @@ theme_override_constants/separation = 160
 [node name="minigames_button" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2" instance=ExtResource("4_fh8p7")]
 layout_mode = 2
 anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 564.0
-offset_top = 140.0
-offset_right = 664.0
-offset_bottom = 240.0
+offset_top = 130.0
+offset_right = 684.0
+offset_bottom = 250.0
 grow_horizontal = 1
 grow_vertical = 1
+text = "Mini Games"
+
+[node name="VBoxContainer" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/minigames_button" index="0"]
+layout_mode = 0
+
+[node name="button" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/minigames_button/VBoxContainer" index="0"]
+layout_mode = 2
 texture_normal = ExtResource("5_mdnyq")
 texture_hover = ExtResource("6_6fase")
-text = "Mini Games"
+
+[node name="hint" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/minigames_button/VBoxContainer" index="1"]
+layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-offset_left = 1596.0
+offset_left = 1556.0
 offset_top = 80.0
 offset_right = 1800.0
-offset_bottom = 180.0
+offset_bottom = 200.0
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="fullscreen" parent="MarginContainer/HBoxContainer2" instance=ExtResource("4_fh8p7")]
+[node name="fullscreen_button" parent="MarginContainer/HBoxContainer2" instance=ExtResource("9_ss1y4")]
 layout_mode = 2
 anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_right = 100.0
-offset_bottom = 100.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 120.0
+offset_bottom = 120.0
 grow_horizontal = 1
 grow_vertical = 1
-texture_normal = ExtResource("3_r5h4v")
-texture_hover = ExtResource("4_8fd15")
-text = "Minimizar"
 
-[node name="close" parent="MarginContainer/HBoxContainer2" instance=ExtResource("4_fh8p7")]
+[node name="close_button" parent="MarginContainer/HBoxContainer2" instance=ExtResource("11_fwfa5")]
 layout_mode = 2
 anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 104.0
-offset_right = 204.0
-offset_bottom = 100.0
-texture_normal = ExtResource("7_8pfwo")
-texture_hover = ExtResource("8_wuo1x")
-text = "Sair"
+offset_left = 124.0
+offset_right = 244.0
+offset_bottom = 120.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="animation_player" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_fc5gy")
 }
 
-[connection signal="button_up" from="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/projects_button" to="." method="_on_projects_button_button_up"]
-[connection signal="button_up" from="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/minigames_button" to="." method="_on_minigames_button_button_up"]
-[connection signal="button_up" from="MarginContainer/HBoxContainer2/fullscreen" to="." method="_on_fullscreen_button_up"]
-[connection signal="button_up" from="MarginContainer/HBoxContainer2/close" to="." method="_on_close_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/projects_button/VBoxContainer/button" to="." method="_on_projects_button_button_up"]
+[connection signal="button_up" from="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/minigames_button/VBoxContainer/button" to="." method="_on_minigames_button_button_up"]
 [connection signal="animation_finished" from="animation_player" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/projects_button"]
+[editable path="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/minigames_button"]

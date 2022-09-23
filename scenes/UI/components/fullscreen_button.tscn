@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b62a40dxi0mey"]
+
+[ext_resource type="PackedScene" uid="uid://ctnl2hxsxcbi3" path="res://scenes/UI/components/button_with_hint.tscn" id="1_3mpl4"]
+[ext_resource type="Script" path="res://scripts/ui/components/fullscreen_button.gd" id="1_70ntk"]
+[ext_resource type="Texture2D" uid="uid://ciddxv2nm1vlr" path="res://assets/UI/gameicons/PNG/Black/2x/smaller.png" id="2_ddmmx"]
+[ext_resource type="Texture2D" uid="uid://bu1f13yo5ixwm" path="res://assets/UI/gameicons/PNG/White/2x/smaller.png" id="3_iwkpo"]
+
+[node name="fullscreen_button" type="Control"]
+custom_minimum_size = Vector2i(120, 120)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_70ntk")
+
+[node name="fullscreen" parent="." instance=ExtResource("1_3mpl4")]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+text = "Minimizar"
+
+[node name="button" parent="fullscreen/VBoxContainer" index="0"]
+texture_normal = ExtResource("2_ddmmx")
+texture_hover = ExtResource("3_iwkpo")
+
+[connection signal="button_up" from="fullscreen/VBoxContainer/button" to="." method="_on_fullscreen_button_up"]
+
+[editable path="fullscreen"]

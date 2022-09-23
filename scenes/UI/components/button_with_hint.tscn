@@ -1,32 +1,49 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctnl2hxsxcbi3"]
 
-[ext_resource type="Texture2D" uid="uid://pj3cp8087cfa" path="res://assets/UI/gameicons/PNG/Black/2x/buttonStart.png" id="1_hhjp2"]
-[ext_resource type="Texture2D" uid="uid://tqhbc5f3knnp" path="res://assets/UI/gameicons/PNG/White/2x/buttonStart.png" id="2_mqiru"]
+[ext_resource type="Texture2D" uid="uid://55ohiek7xcgt" path="res://assets/UI/gameicons/PNG/Black/2x/buttonSelect.png" id="2_0cyga"]
+[ext_resource type="Texture2D" uid="uid://wrv4g67q3wke" path="res://assets/UI/gameicons/PNG/White/2x/buttonSelect.png" id="3_3v7pd"]
 [ext_resource type="Script" path="res://scripts/ui/components/button_with_hint.gd" id="3_empae"]
 [ext_resource type="Theme" uid="uid://fonxljnjj4ob" path="res://resources/extra_light.tres" id="4_tagyh"]
 
-[node name="button_with_hint" type="TextureButton"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="button_with_hint" type="Control"]
+custom_minimum_size = Vector2i(120, 120)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("1_hhjp2")
-texture_hover = ExtResource("2_mqiru")
 script = ExtResource("3_empae")
 
-[node name="hint" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="button" type="TextureButton" parent="VBoxContainer"]
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_0cyga")
+texture_hover = ExtResource("3_3v7pd")
+
+[node name="hint" type="Label" parent="VBoxContainer"]
 visible = false
-offset_left = -91.0
-offset_top = 103.0
-offset_right = 232.0
-offset_bottom = 155.0
+offset_left = 49.0
+offset_top = 104.0
+offset_right = 50.0
+offset_bottom = 260.0
+size_flags_horizontal = 4
 theme = ExtResource("4_tagyh")
 text = "Texto de Ajuda"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
-[connection signal="mouse_entered" from="." to="." method="_on_button_with_hint_mouse_entered"]
-[connection signal="mouse_exited" from="." to="." method="_on_button_with_hint_mouse_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/button" to="." method="_on_button_mouse_exited"]

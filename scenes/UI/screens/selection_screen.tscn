@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3aton2kmo65x"]
+
+[ext_resource type="Texture2D" uid="uid://bq6c3gg11a8mw" path="res://assets/UI/backgrounds/main_background.png" id="1_udht2"]
+[ext_resource type="Texture2D" uid="uid://ccoffesf0ex38" path="res://assets/UI/gameicons/PNG/Black/2x/left.png" id="2_yc72c"]
+[ext_resource type="Texture2D" uid="uid://c62d085oiyrxg" path="res://assets/UI/gameicons/PNG/White/2x/left.png" id="3_auqvu"]
+[ext_resource type="Theme" uid="uid://tpkjaiuml3dn" path="res://resources/bold.tres" id="4_vbfoy"]
+[ext_resource type="Theme" uid="uid://8bxk187yykx0" path="res://resources/medium.tres" id="5_8gmpp"]
+[ext_resource type="Texture2D" uid="uid://b2vl7sgnri1af" path="res://assets/UI/gameicons/PNG/Black/2x/right.png" id="6_o72sh"]
+[ext_resource type="Texture2D" uid="uid://bqqdf338ubpre" path="res://assets/UI/gameicons/PNG/White/2x/right.png" id="7_uw724"]
+
+[node name="selection_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="background" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_udht2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+offset_left = 132.0
+offset_top = 80.0
+offset_right = 1788.0
+offset_bottom = 1000.0
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="previous" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2i(200, 200)
+offset_top = 360.0
+offset_right = 200.0
+offset_bottom = 560.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_yc72c")
+texture_hover = ExtResource("3_auqvu")
+stretch_mode = 0
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(80, 0)
+offset_left = 204.0
+offset_right = 284.0
+offset_bottom = 920.0
+
+[node name="card" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2i(1080, 0)
+offset_left = 288.0
+offset_right = 1368.0
+offset_bottom = 920.0
+alignment = 1
+
+[node name="title" type="Label" parent="MarginContainer/HBoxContainer/card"]
+offset_top = 44.0
+offset_right = 1080.0
+offset_bottom = 112.0
+theme = ExtResource("4_vbfoy")
+text = "Titulo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/card"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(48, 48)
+offset_top = 116.0
+offset_right = 1080.0
+offset_bottom = 164.0
+
+[node name="image" type="TextureRect" parent="MarginContainer/HBoxContainer/card"]
+custom_minimum_size = Vector2i(800, 600)
+offset_left = 140.0
+offset_top = 168.0
+offset_right = 940.0
+offset_bottom = 768.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+ignore_texture_size = true
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/card"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(48, 48)
+offset_top = 772.0
+offset_right = 1080.0
+offset_bottom = 820.0
+
+[node name="description" type="Label" parent="MarginContainer/HBoxContainer/card"]
+offset_top = 824.0
+offset_right = 1080.0
+offset_bottom = 876.0
+theme = ExtResource("5_8gmpp")
+text = "Uma descrição do item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(80, 0)
+offset_left = 1372.0
+offset_right = 1452.0
+offset_bottom = 920.0
+
+[node name="next" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2i(200, 200)
+offset_left = 1456.0
+offset_top = 360.0
+offset_right = 1656.0
+offset_bottom = 560.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_o72sh")
+texture_hover = ExtResource("7_uw724")
+stretch_mode = 0

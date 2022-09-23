@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2prqt4by5hd1"]
+
+[ext_resource type="Script" path="res://scripts/ui/components/close_button.gd" id="1_08kmu"]
+[ext_resource type="PackedScene" uid="uid://ctnl2hxsxcbi3" path="res://scenes/UI/components/button_with_hint.tscn" id="2_yeymb"]
+[ext_resource type="Texture2D" uid="uid://g6hdvn2t4r2o" path="res://assets/UI/gameicons/PNG/Black/2x/exit.png" id="3_sd1sl"]
+[ext_resource type="Texture2D" uid="uid://cga7rwj8rdnld" path="res://assets/UI/gameicons/PNG/White/2x/exit.png" id="4_5jwn3"]
+
+[node name="close_button" type="Control"]
+custom_minimum_size = Vector2i(120, 120)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_08kmu")
+
+[node name="close" parent="." instance=ExtResource("2_yeymb")]
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+text = "Sair"
+
+[node name="button" parent="close/VBoxContainer" index="0"]
+texture_normal = ExtResource("3_sd1sl")
+texture_hover = ExtResource("4_5jwn3")
+
+[connection signal="button_up" from="close/VBoxContainer/button" to="." method="_on_close_button_up"]
+
+[editable path="close"]
