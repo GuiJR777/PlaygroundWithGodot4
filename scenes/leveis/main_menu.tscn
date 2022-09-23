@@ -140,10 +140,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ei4ah")
-metadata/_edit_use_anchors_ = true
 
 [node name="background" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -153,11 +153,11 @@ texture = ExtResource("1_5dwte")
 ignore_texture_size = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1084.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 120
@@ -165,8 +165,10 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer1" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 offset_left = 120.0
 offset_top = 80.0
 offset_right = 1800.0
@@ -174,6 +176,7 @@ offset_bottom = 1004.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer1"]
+layout_mode = 2
 offset_left = 360.0
 offset_right = 1320.0
 offset_bottom = 924.0
@@ -182,12 +185,14 @@ alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer1/VBoxContainer"]
 custom_minimum_size = Vector2i(540, 0)
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 540.0
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2i(960, 540)
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 540.0
 size_flags_vertical = 4
@@ -196,12 +201,14 @@ ignore_texture_size = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer1/VBoxContainer"]
 custom_minimum_size = Vector2i(0, 380)
+layout_mode = 2
 offset_top = 544.0
 offset_right = 960.0
 offset_bottom = 924.0
 alignment = 1
 
 [node name="projects_button" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2" instance=ExtResource("4_yrlx5")]
+layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
@@ -215,14 +222,23 @@ grow_vertical = 1
 scene_destiny_path = "res://scenes/UI/screens/projects_screen.tscn"
 
 [node name="change" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/projects_button" index="0"]
+layout_mode = 1
 text = "Projetos"
 
+[node name="VBoxContainer" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/projects_button/change" index="0"]
+layout_mode = 1
+
 [node name="button" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/projects_button/change/VBoxContainer" index="0"]
+layout_mode = 2
 texture_normal = ExtResource("5_wbkqe")
 texture_hover = ExtResource("6_bvw1c")
 
+[node name="hint" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/projects_button/change/VBoxContainer" index="1"]
+layout_mode = 2
+
 [node name="VSeparator" type="VSeparator" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2"]
 modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 offset_left = 400.0
 offset_top = 188.0
 offset_right = 560.0
@@ -231,6 +247,7 @@ size_flags_vertical = 4
 theme_override_constants/separation = 160
 
 [node name="minigames_button" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2" instance=ExtResource("4_yrlx5")]
+layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
@@ -243,13 +260,22 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="change" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/minigames_button" index="0"]
+layout_mode = 1
 text = "Mini games"
 
+[node name="VBoxContainer" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/minigames_button/change" index="0"]
+layout_mode = 1
+
 [node name="button" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/minigames_button/change/VBoxContainer" index="0"]
+layout_mode = 2
 texture_normal = ExtResource("5_mdnyq")
 texture_hover = ExtResource("6_6fase")
 
+[node name="hint" parent="MarginContainer/HBoxContainer1/VBoxContainer/HBoxContainer2/minigames_button/change/VBoxContainer" index="1"]
+layout_mode = 2
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 offset_left = 1556.0
 offset_top = 80.0
 offset_right = 1800.0
@@ -258,6 +284,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 
 [node name="fullscreen_button" parent="MarginContainer/HBoxContainer2" instance=ExtResource("9_ss1y4")]
+layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
@@ -271,6 +298,7 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="close_button" parent="MarginContainer/HBoxContainer2" instance=ExtResource("11_fwfa5")]
+layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0

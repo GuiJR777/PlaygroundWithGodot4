@@ -1,4 +1,5 @@
 extends Control
+class_name FullscreenButton
 
 @onready var fullscreen_button: TextureButton = get_node("fullscreen/VBoxContainer/button")
 @onready var fullscreen_label: Label = get_node("fullscreen/VBoxContainer/hint")

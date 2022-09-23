@@ -1,3 +1,4 @@
 extends Node
 
-var previous_scene: String = ""
+var actual_page_index: int = 0
+var previous_scenes: Array[String] = []

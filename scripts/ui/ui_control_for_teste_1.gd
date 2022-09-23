@@ -1,13 +1,13 @@
-extends Control
+extends HBoxContainer
 class_name SkinSelectionControl
 
 
 const PATH_TO_SKINS: String = "res://Assets/3D_characters/skins/"
 const TEXTURE_EXTENSION: String = ".png"
 
-@onready var skin_class_label: Label = $panel/container/general_container/container2/class_selection/skin_class
-@onready var variation_skin_label: Label = $panel/container/general_container/container2/variation_selection/variation
-@onready var animation_label: Label = $panel/container/general_container/container2/animation_selection/animation
+@onready var skin_class_label: Label = $HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/class_selection/skin_class
+@onready var variation_skin_label: Label = $HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/variation_selection/variation
+@onready var animation_label: Label = $HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/animation_selection/animation
 
 var character_reference: Dummy = null
 
@@ -115,6 +115,3 @@ func _on_animation_left_button_up():
 	actual_animation_index = _set_new_index(actual_animation_index, max_value, false)
 	_update_values()
 
-
-func _on_close_button_button_up():
-	get_tree().quit()
