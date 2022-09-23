@@ -1,15 +1,15 @@
 [gd_scene load_steps=13 format=3 uid="uid://0g1rhwuepngx"]
 
-[ext_resource type="Script" path="res://scripts/ui/ui_control_for_teste_1.gd" id="1_8fa56"]
-[ext_resource type="PackedScene" uid="uid://b2kob5662nn1k" path="res://scenes/characters/dummy.tscn" id="1_f54lr"]
-[ext_resource type="Texture2D" uid="uid://c0qen7vkghelh" path="res://assets/UI/settings menu/Panel Information.png" id="1_hxs06"]
-[ext_resource type="Theme" uid="uid://8bxk187yykx0" path="res://resources/medium.tres" id="2_4bt6u"]
-[ext_resource type="Theme" uid="uid://tpkjaiuml3dn" path="res://resources/bold.tres" id="2_b65f1"]
-[ext_resource type="Texture2D" uid="uid://brxfn5sh71w0k" path="res://assets/UI/settings menu/Arrow Left.png" id="3_5j3g3"]
-[ext_resource type="Texture2D" uid="uid://d1ywa7rmm6pbe" path="res://assets/UI/settings menu/Arrow Right.png" id="4_4qnyd"]
-[ext_resource type="PackedScene" uid="uid://b62a40dxi0mey" path="res://scenes/UI/components/fullscreen_button.tscn" id="9_b04a7"]
-[ext_resource type="Texture2D" uid="uid://cwf707w0xufmg" path="res://assets/UI/backgrounds/grid_bg.png" id="9_dffih"]
-[ext_resource type="PackedScene" uid="uid://d3d826vi5r1lo" path="res://scenes/UI/components/back_button.tscn" id="10_ktwk5"]
+[ext_resource type="PackedScene" uid="uid://b2kob5662nn1k" path="res://scenes/characters/dummy.tscn" id="1_qcyiu"]
+[ext_resource type="Texture2D" uid="uid://cwf707w0xufmg" path="res://assets/UI/backgrounds/grid_bg.png" id="2_348vw"]
+[ext_resource type="Script" path="res://scripts/ui/ui_control_for_teste_1.gd" id="3_5yxwk"]
+[ext_resource type="Texture2D" uid="uid://c0qen7vkghelh" path="res://assets/UI/settings menu/Panel Information.png" id="4_hp8r4"]
+[ext_resource type="Theme" uid="uid://tpkjaiuml3dn" path="res://resources/bold.tres" id="5_qetgh"]
+[ext_resource type="Texture2D" uid="uid://brxfn5sh71w0k" path="res://assets/UI/settings menu/Arrow Left.png" id="6_2pp4s"]
+[ext_resource type="Theme" uid="uid://8bxk187yykx0" path="res://resources/medium.tres" id="7_2okuj"]
+[ext_resource type="Texture2D" uid="uid://d1ywa7rmm6pbe" path="res://assets/UI/settings menu/Arrow Right.png" id="8_l43pb"]
+[ext_resource type="PackedScene" uid="uid://b62a40dxi0mey" path="res://scenes/UI/components/fullscreen_button.tscn" id="9_8cxrt"]
+[ext_resource type="PackedScene" uid="uid://d3d826vi5r1lo" path="res://scenes/UI/components/back_button.tscn" id="10_f3dkl"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hp3wq"]
 
@@ -30,18 +30,18 @@ transform = Transform3D(13.2846, 0, 0, 0, 1, 0, 0, 0, 9.29573, 0, 0, 0)
 shape = SubResource("BoxShape3D_ef2op")
 
 [node name="camera_1" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 7)
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25652, 14.8359, -8.02466)
 light_energy = 1.513
 
-[node name="dummy" parent="." instance=ExtResource("1_f54lr")]
-transform = Transform3D(-0.950144, 0, -8.30642e-08, 0, 0.950144, 0, 8.30642e-08, 0, -0.950144, 0, 7.43439, 0)
+[node name="dummy" parent="." instance=ExtResource("1_qcyiu")]
+transform = Transform3D(-0.892843, 0, 0.324968, 0, 0.950144, 0, -0.324968, 0, -0.892843, 3.59439, 7.43439, 0)
 
 [node name="background" type="Sprite3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 8, -4.734)
-texture = ExtResource("9_dffih")
+texture = ExtResource("2_348vw")
 
 [node name="ui_control" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2i(1920, 1080)
@@ -50,9 +50,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8fa56")
+script = ExtResource("3_5yxwk")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui_control"]
+layout_mode = 2
 offset_right = 1924.0
 offset_bottom = 1080.0
 grow_horizontal = 2
@@ -60,17 +61,20 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ui_control/HBoxContainer"]
 custom_minimum_size = Vector2i(960, 1080)
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 1080.0
 
 [node name="TextureRect" type="TextureRect" parent="ui_control/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2i(960, 1080)
+layout_mode = 2
 offset_right = 960.0
 offset_bottom = 1080.0
-texture = ExtResource("1_hxs06")
+texture = ExtResource("4_hp8r4")
 ignore_texture_size = true
 
 [node name="MarginContainer" type="MarginContainer" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -82,6 +86,7 @@ theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 64
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer"]
+layout_mode = 2
 offset_left = 48.0
 offset_top = 64.0
 offset_right = 1256.0
@@ -91,12 +96,13 @@ alignment = 1
 
 [node name="title" type="Label" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2i(800, 0)
+layout_mode = 2
 offset_left = 204.0
 offset_top = 184.0
 offset_right = 1004.0
 offset_bottom = 252.0
 size_flags_horizontal = 4
-theme = ExtResource("2_b65f1")
+theme = ExtResource("5_qetgh")
 theme_type_variation = &"HeaderLarge"
 text = "Selecione uma Skin"
 horizontal_alignment = 1
@@ -104,6 +110,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="separator" type="HSeparator" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
 offset_left = 602.0
 offset_top = 332.0
 offset_right = 605.0
@@ -114,6 +121,7 @@ theme_override_constants/separation = 40
 
 [node name="class_selection" type="GridContainer" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_top = 452.0
 offset_right = 1208.0
 offset_bottom = 504.0
@@ -123,17 +131,19 @@ columns = 3
 
 [node name="left" type="TextureButton" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/class_selection"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_right = 400.0
 offset_bottom = 52.0
-texture_normal = ExtResource("3_5j3g3")
+texture_normal = ExtResource("6_2pp4s")
 stretch_mode = 3
 
 [node name="skin_class" type="Label" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/class_selection"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_left = 404.0
 offset_right = 804.0
 offset_bottom = 52.0
-theme = ExtResource("2_4bt6u")
+theme = ExtResource("7_2okuj")
 theme_type_variation = &"HeaderMedium"
 text = "Skin Class"
 horizontal_alignment = 1
@@ -141,14 +151,16 @@ vertical_alignment = 1
 
 [node name="right" type="TextureButton" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/class_selection"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_left = 808.0
 offset_right = 1208.0
 offset_bottom = 52.0
-texture_normal = ExtResource("4_4qnyd")
+texture_normal = ExtResource("8_l43pb")
 stretch_mode = 3
 
 [node name="variation_selection" type="GridContainer" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_top = 584.0
 offset_right = 1208.0
 offset_bottom = 636.0
@@ -158,17 +170,19 @@ columns = 3
 
 [node name="left" type="TextureButton" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/variation_selection"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_right = 400.0
 offset_bottom = 52.0
-texture_normal = ExtResource("3_5j3g3")
+texture_normal = ExtResource("6_2pp4s")
 stretch_mode = 3
 
 [node name="variation" type="Label" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/variation_selection"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_left = 404.0
 offset_right = 804.0
 offset_bottom = 52.0
-theme = ExtResource("2_4bt6u")
+theme = ExtResource("7_2okuj")
 theme_type_variation = &"HeaderMedium"
 text = "Variation"
 horizontal_alignment = 1
@@ -176,14 +190,16 @@ vertical_alignment = 1
 
 [node name="right" type="TextureButton" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/variation_selection"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_left = 808.0
 offset_right = 1208.0
 offset_bottom = 52.0
-texture_normal = ExtResource("4_4qnyd")
+texture_normal = ExtResource("8_l43pb")
 stretch_mode = 3
 
 [node name="animation_selection" type="GridContainer" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_top = 716.0
 offset_right = 1208.0
 offset_bottom = 768.0
@@ -193,17 +209,19 @@ columns = 3
 
 [node name="left" type="TextureButton" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/animation_selection"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_right = 400.0
 offset_bottom = 52.0
-texture_normal = ExtResource("3_5j3g3")
+texture_normal = ExtResource("6_2pp4s")
 stretch_mode = 3
 
 [node name="animation" type="Label" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/animation_selection"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_left = 404.0
 offset_right = 804.0
 offset_bottom = 52.0
-theme = ExtResource("2_4bt6u")
+theme = ExtResource("7_2okuj")
 theme_type_variation = &"HeaderMedium"
 text = "Animation"
 horizontal_alignment = 1
@@ -211,19 +229,22 @@ vertical_alignment = 1
 
 [node name="right" type="TextureButton" parent="ui_control/HBoxContainer/VBoxContainer/TextureRect/MarginContainer/VBoxContainer/animation_selection"]
 custom_minimum_size = Vector2i(400, 0)
+layout_mode = 2
 offset_left = 808.0
 offset_right = 1208.0
 offset_bottom = 52.0
-texture_normal = ExtResource("4_4qnyd")
+texture_normal = ExtResource("8_l43pb")
 stretch_mode = 3
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="ui_control/HBoxContainer"]
 custom_minimum_size = Vector2i(960, 1080)
+layout_mode = 2
 offset_left = 964.0
 offset_right = 1924.0
 offset_bottom = 1080.0
 
 [node name="MarginContainer" type="MarginContainer" parent="ui_control/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
 offset_left = 596.0
 offset_right = 960.0
 offset_bottom = 200.0
@@ -233,13 +254,15 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ui_control/HBoxContainer/VBoxContainer2/MarginContainer"]
+layout_mode = 2
 offset_top = 80.0
 offset_right = 244.0
 offset_bottom = 200.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="fullscreen_button" parent="ui_control/HBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("9_b04a7")]
+[node name="fullscreen_button" parent="ui_control/HBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("9_8cxrt")]
+layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
@@ -252,7 +275,8 @@ offset_bottom = 120.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="back_button" parent="ui_control/HBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("10_ktwk5")]
+[node name="back_button" parent="ui_control/HBoxContainer/VBoxContainer2/MarginContainer/HBoxContainer" instance=ExtResource("10_f3dkl")]
+layout_mode = 2
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0

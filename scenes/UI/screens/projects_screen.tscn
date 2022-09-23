@@ -7,39 +7,6 @@ cards = [{
 "description": "Esse projeto tem como objetivo criar um sitema de seleção de skins para personagens de um jogo.",
 "destiny": "res://scenes/leveis/change_skin_test.tscn",
 "image": "res://assets/UI/images/skin_changer.png",
-"scene_destiny": "res://scenes/leveis/change_skin_test.tscn",
+"scene_destiny": "res://scenes/skin_changer/change_skin_test.tscn",
 "title": "Skin Changer"
 }]
-
-[node name="background" parent="." index="0"]
-layout_mode = 1
-
-[node name="MarginContainer" parent="." index="1"]
-layout_mode = 1
-
-[node name="content" parent="MarginContainer" index="0"]
-layout_mode = 2
-
-[node name="previous" parent="MarginContainer/content" index="0"]
-layout_mode = 2
-
-[node name="VSeparator" parent="MarginContainer/content" index="1"]
-layout_mode = 2
-
-[node name="card" parent="MarginContainer/content" index="2"]
-layout_mode = 2
-
-[node name="VSeparator2" parent="MarginContainer/content" index="3"]
-layout_mode = 2
-
-[node name="next" parent="MarginContainer/content" index="4"]
-layout_mode = 2
-
-[node name="actions" parent="MarginContainer" index="1"]
-layout_mode = 2
-
-[node name="fullscreen_button" parent="MarginContainer/actions" index="0"]
-layout_mode = 2
-
-[node name="back_button" parent="MarginContainer/actions" index="1"]
-layout_mode = 2
