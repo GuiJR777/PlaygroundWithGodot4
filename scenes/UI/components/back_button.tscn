@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3d826vi5r1lo"]
+
+[ext_resource type="Script" path="res://scripts/ui/components/back_button.gd" id="1_3at0c"]
+[ext_resource type="PackedScene" uid="uid://ctnl2hxsxcbi3" path="res://scenes/UI/components/button_with_hint.tscn" id="2_66gc7"]
+[ext_resource type="Texture2D" uid="uid://c6p06p4wvmyax" path="res://assets/UI/gameicons/PNG/Black/2x/return.png" id="3_wuhev"]
+[ext_resource type="Texture2D" uid="uid://xoh54frjinnw" path="res://assets/UI/gameicons/PNG/White/2x/return.png" id="4_hygmu"]
+
+[node name="back_button" type="Control"]
+custom_minimum_size = Vector2i(120, 120)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3at0c")
+
+[node name="back" parent="." instance=ExtResource("2_66gc7")]
+layout_mode = 1
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+text = "Voltar"
+
+[node name="button" parent="back/VBoxContainer" index="0"]
+texture_normal = ExtResource("3_wuhev")
+texture_hover = ExtResource("4_hygmu")
+
+[connection signal="button_up" from="back/VBoxContainer/button" to="." method="_on_back_button_up"]
+
+[editable path="back"]

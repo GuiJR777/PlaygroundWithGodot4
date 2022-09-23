@@ -24,6 +24,11 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://scenes/defaults/default_humanoid.gd"
 }, {
+"base": "VBoxContainer",
+"class": &"ProjectCard",
+"language": &"GDScript",
+"path": "res://scripts/ui/components/project_card.gd"
+}, {
 "base": "Control",
 "class": &"SkinSelectionControl",
 "language": &"GDScript",
@@ -33,6 +38,7 @@ _global_script_class_icons={
 "Dummy": "",
 "HumanoidBody": "",
 "HumanoidCharacter": "",
+"ProjectCard": "",
 "SkinSelectionControl": ""
 }
 
@@ -46,6 +52,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Constants="*res://scripts/global/constants.gd"
+Global="*res://scripts/global/global.gd"
 
 [display]
 

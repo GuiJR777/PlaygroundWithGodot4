@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://x22xgj56g4lp"]
+
+[ext_resource type="Script" path="res://scripts/ui/components/project_card.gd" id="1_lccwg"]
+[ext_resource type="Theme" uid="uid://tpkjaiuml3dn" path="res://resources/bold.tres" id="1_u64o0"]
+[ext_resource type="Texture2D" uid="uid://0oo5xdv4nw7d" path="res://assets/UI/backgrounds/logo.png" id="2_3ot25"]
+[ext_resource type="Theme" uid="uid://8bxk187yykx0" path="res://resources/medium.tres" id="3_jv4g4"]
+
+[node name="card" type="VBoxContainer"]
+custom_minimum_size = Vector2i(1080, 0)
+offset_left = 288.0
+offset_right = 1368.0
+offset_bottom = 920.0
+alignment = 1
+script = ExtResource("1_lccwg")
+
+[node name="title" type="Label" parent="."]
+offset_top = 44.0
+offset_right = 1080.0
+offset_bottom = 112.0
+theme = ExtResource("1_u64o0")
+text = "Titulo"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(48, 48)
+offset_top = 116.0
+offset_right = 1080.0
+offset_bottom = 164.0
+
+[node name="image" type="TextureButton" parent="."]
+custom_minimum_size = Vector2i(800, 600)
+offset_left = 140.0
+offset_top = 168.0
+offset_right = 940.0
+offset_bottom = 768.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_3ot25")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2i(48, 48)
+offset_top = 772.0
+offset_right = 1080.0
+offset_bottom = 820.0
+
+[node name="description" type="Label" parent="."]
+offset_top = 824.0
+offset_right = 1080.0
+offset_bottom = 876.0
+theme = ExtResource("3_jv4g4")
+text = "Uma descrição do item"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="button_up" from="image" to="." method="_on_image_button_up"]
+[connection signal="mouse_entered" from="image" to="." method="_on_image_mouse_entered"]
+[connection signal="mouse_exited" from="image" to="." method="_on_image_mouse_exited"]
