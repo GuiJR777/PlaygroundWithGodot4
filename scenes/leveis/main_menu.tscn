@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bq6c3gg11a8mw" path="res://assets/UI/backgrounds/main_background.png" id="1_5dwte"]
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_ei4ah"]
 [ext_resource type="Texture2D" uid="uid://s4cu3r7tkwkl" path="res://assets/UI/backgrounds/logo-removebg.png" id="2_pccpv"]
-[ext_resource type="PackedScene" uid="uid://kdrbmq5xm4iu" path="res://scenes/UI/components/change_scene_button.tscn" id="4_yrlx5"]
+[ext_resource type="PackedScene" path="res://scenes/UI/components/change_scene_button.tscn" id="4_yrlx5"]
 [ext_resource type="Texture2D" uid="uid://wtem24u55rrw" path="res://assets/UI/gameicons/PNG/Black/2x/gamepad.png" id="5_mdnyq"]
 [ext_resource type="Texture2D" uid="uid://dd58dfeh14fpc" path="res://assets/UI/gameicons/PNG/Black/2x/leaderboardsComplex.png" id="5_wbkqe"]
 [ext_resource type="Texture2D" uid="uid://6fkg7mprwclf" path="res://assets/UI/gameicons/PNG/White/2x/gamepad.png" id="6_6fase"]
@@ -155,8 +155,8 @@ ignore_texture_size = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 1920.0
-offset_bottom = 1084.0
+offset_top = -2.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 120

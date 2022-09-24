@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://kdrbmq5xm4iu"]
+[gd_scene load_steps=5 format=3]
 
-[ext_resource type="Script" path="res://scenes/UI/components/change_scene_button.gd" id="1_h8p06"]
+[ext_resource type="Script" path="res://scripts/ui/components/change_scene_button.gd" id="1_h8p06"]
 [ext_resource type="PackedScene" uid="uid://ctnl2hxsxcbi3" path="res://scenes/UI/components/button_with_hint.tscn" id="2_ejp8h"]
 [ext_resource type="Texture2D" uid="uid://c6p06p4wvmyax" path="res://assets/UI/gameicons/PNG/Black/2x/return.png" id="3_6mlkk"]
 [ext_resource type="Texture2D" uid="uid://xoh54frjinnw" path="res://assets/UI/gameicons/PNG/White/2x/return.png" id="4_gcsyq"]
