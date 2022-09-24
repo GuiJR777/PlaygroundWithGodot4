@@ -1,9 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://dr0wvj2hiavyy"]
+[gd_scene load_steps=8 format=3 uid="uid://dr0wvj2hiavyy"]
 
-[ext_resource type="Texture2D" uid="uid://lfjamg5drgxr" path="res://assets/R-removebg-preview.png" id="1_booyb"]
 [ext_resource type="Script" path="res://scripts/ui/components/presentation.gd" id="1_rrdg7"]
+[ext_resource type="Texture2D" uid="uid://3e8mbtpfd02g" path="res://assets/R-PIXEL-BLUE-removebg.png" id="2_avfh7"]
 [ext_resource type="Theme" uid="uid://tpkjaiuml3dn" path="res://resources/bold.tres" id="2_kk1cn"]
 [ext_resource type="Theme" uid="uid://fonxljnjj4ob" path="res://resources/extra_light.tres" id="3_34382"]
+
+[sub_resource type="Animation" id="Animation_oittq"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_olimn"]
+resource_name = "start"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wl1to"]
+_data = {
+"RESET": SubResource("Animation_oittq"),
+"start": SubResource("Animation_olimn")
+}
 
 [node name="presentation" type="ColorRect"]
 anchors_preset = 15
@@ -11,11 +48,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.109804, 0.109804, 0.109804, 1)
+color = Color(0, 0, 0, 1)
 script = ExtResource("1_rrdg7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -31,18 +67,16 @@ theme_override_constants/separation = 64
 
 [node name="logo" type="TextureRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2i(500, 500)
-layout_mode = 2
 offset_right = 800.0
 offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_booyb")
+texture = ExtResource("2_avfh7")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 custom_minimum_size = Vector2i(800, 0)
-layout_mode = 2
 offset_top = 564.0
 offset_right = 800.0
 offset_bottom = 700.0
@@ -53,8 +87,8 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2i(0, 120)
-layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -66,3 +100,8 @@ theme = ExtResource("3_34382")
 text = "presents:"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wl1to")
+}

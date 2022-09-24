@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by7jt6c0k0ml0"
-path="res://.godot/imported/Preview.png-7760e87d9978e79e07195d09d01d2186.ctex"
+uid="uid://coui6l7c38t7u"
+path="res://.godot/imported/linkedin_BLACK.png-dc5caa5469ea659bef101c7d1c9c9c38.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/icons_buttons/Preview.png"
-dest_files=["res://.godot/imported/Preview.png-7760e87d9978e79e07195d09d01d2186.ctex"]
+source_file="res://assets/UI/icons_buttons/linkedin_BLACK.png"
+dest_files=["res://.godot/imported/linkedin_BLACK.png-dc5caa5469ea659bef101c7d1c9c9c38.ctex"]
 
 [params]
 

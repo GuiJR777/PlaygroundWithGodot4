@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ftqcfh4l3hgx"
-path="res://.godot/imported/Gamepad Button Bottom.png-3abd4c6b8ccfc0c5154cdcfca8cdd6e1.ctex"
+uid="uid://cybj2pv2v4msd"
+path="res://.godot/imported/github-BLACK.png-e57d4282c9c86de43785539fd0afc8ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/icons_buttons/Gamepad Button Bottom.png"
-dest_files=["res://.godot/imported/Gamepad Button Bottom.png-3abd4c6b8ccfc0c5154cdcfca8cdd6e1.ctex"]
+source_file="res://assets/UI/icons_buttons/github-BLACK.png"
+dest_files=["res://.godot/imported/github-BLACK.png-e57d4282c9c86de43785539fd0afc8ec.ctex"]
 
 [params]
 

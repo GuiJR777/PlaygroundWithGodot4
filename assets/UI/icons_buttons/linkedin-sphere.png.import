@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1p4s03y1e3se"
-path="res://.godot/imported/Gamepad Button 3.png-011ab508961e5b721828780e9987b658.ctex"
+uid="uid://issw5r48f5hs"
+path="res://.godot/imported/linkedin-sphere.png-27d48964aef67c904583ca5f1abd0059.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/icons_buttons/Gamepad Button 3.png"
-dest_files=["res://.godot/imported/Gamepad Button 3.png-011ab508961e5b721828780e9987b658.ctex"]
+source_file="res://assets/UI/icons_buttons/linkedin-sphere.png"
+dest_files=["res://.godot/imported/linkedin-sphere.png-27d48964aef67c904583ca5f1abd0059.ctex"]
 
 [params]
 

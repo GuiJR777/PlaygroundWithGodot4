@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy6cd8k3qrqp3"]
+
+[ext_resource type="Script" path="res://scripts/ui/components/button_to_internet.gd" id="1_bujp3"]
+[ext_resource type="Texture2D" uid="uid://55ohiek7xcgt" path="res://assets/UI/gameicons/PNG/Black/2x/buttonSelect.png" id="3_ripxs"]
+[ext_resource type="Texture2D" uid="uid://wrv4g67q3wke" path="res://assets/UI/gameicons/PNG/White/2x/buttonSelect.png" id="4_f2wic"]
+[ext_resource type="Theme" uid="uid://fonxljnjj4ob" path="res://resources/extra_light.tres" id="5_lrfh5"]
+
+[node name="button_to_internet" type="Control"]
+custom_minimum_size = Vector2i(100, 100)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bujp3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="button" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2i(100, 100)
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_ripxs")
+texture_hover = ExtResource("4_f2wic")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="hint" type="Label" parent="VBoxContainer"]
+visible = false
+offset_left = 49.0
+offset_top = 104.0
+offset_right = 50.0
+offset_bottom = 260.0
+size_flags_horizontal = 4
+theme = ExtResource("5_lrfh5")
+text = "Texto de Ajuda"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="mouse_entered" from="VBoxContainer/button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/button" to="." method="_on_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/button" to="." method="_on_button_pressed"]

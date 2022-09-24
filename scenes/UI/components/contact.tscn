@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://gyyaibauqtvp"]
+
+[ext_resource type="Theme" uid="uid://fonxljnjj4ob" path="res://resources/extra_light.tres" id="1_ywkck"]
+[ext_resource type="PackedScene" uid="uid://dy6cd8k3qrqp3" path="res://scenes/UI/components/button_to_internet.tscn" id="2_b67yf"]
+[ext_resource type="Texture2D" uid="uid://issw5r48f5hs" path="res://assets/UI/icons_buttons/linkedin-sphere.png" id="3_c126o"]
+[ext_resource type="Texture2D" uid="uid://coui6l7c38t7u" path="res://assets/UI/icons_buttons/linkedin_BLACK.png" id="4_xe5nk"]
+[ext_resource type="Texture2D" uid="uid://cg1la2iyr1yx6" path="res://assets/UI/icons_buttons/github.png" id="5_nas1e"]
+[ext_resource type="Texture2D" uid="uid://cybj2pv2v4msd" path="res://assets/UI/icons_buttons/github-BLACK.png" id="6_8jq72"]
+
+[node name="contact" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -100.0
+offset_right = 821.0
+offset_bottom = 36.0
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 760.0
+offset_bottom = 120.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 32
+
+[node name="name" type="Label" parent="MarginContainer/HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2i(480, 0)
+offset_right = 480.0
+offset_bottom = 104.0
+theme = ExtResource("1_ywkck")
+text = "Development by Guilherme J. Ramires"
+autowrap_mode = 2
+
+[node name="linkedin" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_b67yf")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 512.0
+offset_right = 612.0
+offset_bottom = 104.0
+grow_horizontal = 1
+grow_vertical = 1
+text_help = "Linkedin"
+normal_image = ExtResource("3_c126o")
+hover_image = ExtResource("4_xe5nk")
+destiny_url = "https://www.linkedin.com/in/guilherme-ramires-4480a0160/"
+
+[node name="github" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_b67yf")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 644.0
+offset_right = 744.0
+offset_bottom = 104.0
+grow_horizontal = 1
+grow_vertical = 1
+text_help = "Github"
+normal_image = ExtResource("5_nas1e")
+hover_image = ExtResource("6_8jq72")
+destiny_url = "https://github.com/GuiJR777"

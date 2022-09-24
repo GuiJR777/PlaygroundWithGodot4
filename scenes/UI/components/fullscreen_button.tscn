@@ -28,16 +28,9 @@ offset_right = 50.0
 offset_bottom = 50.0
 text = "Minimizar"
 
-[node name="VBoxContainer" parent="fullscreen" index="0"]
-layout_mode = 3
-
 [node name="button" parent="fullscreen/VBoxContainer" index="0"]
-layout_mode = 3
 texture_normal = ExtResource("2_ddmmx")
 texture_hover = ExtResource("3_iwkpo")
-
-[node name="hint" parent="fullscreen/VBoxContainer" index="1"]
-layout_mode = 3
 
 [connection signal="button_up" from="fullscreen/VBoxContainer/button" to="." method="_on_fullscreen_button_up"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvnupx3m3ghuo"
-path="res://.godot/imported/Button 3 Mini.png-2a6815e95569a5f79a0ac73c85b3b40e.ctex"
+uid="uid://3e8mbtpfd02g"
+path="res://.godot/imported/R-PIXEL-BLUE-removebg.png-822204fca4f42fe04a78f9618c782a4d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/icons_buttons/Button 3 Mini.png"
-dest_files=["res://.godot/imported/Button 3 Mini.png-2a6815e95569a5f79a0ac73c85b3b40e.ctex"]
+source_file="res://assets/R-PIXEL-BLUE-removebg.png"
+dest_files=["res://.godot/imported/R-PIXEL-BLUE-removebg.png-822204fca4f42fe04a78f9618c782a4d.ctex"]
 
 [params]
 
