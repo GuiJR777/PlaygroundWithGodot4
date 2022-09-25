@@ -7,20 +7,28 @@ extends CharacterBody3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+var is_moving: bool = false
+
 
 func _physics_process(delta):
-	# Add the gravity.
+	if get_movement_direction():
+		is_moving = true
+	else:
+		is_moving = false
+	print("Esta se movendo: "+str(is_moving))
+
+
+func apply_gravity(delta) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+func jump() -> void:
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_impulse
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+func apply_horizontal_move() -> void:
+	var direction = get_movement_direction()
+
 	if direction:
 		velocity.x = direction.x * movement_speed
 		velocity.z = direction.z * movement_speed
@@ -28,4 +36,11 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
 		velocity.z = move_toward(velocity.z, 0, movement_speed)
 
-	move_and_slide()
+func get_movement_direction() -> Vector3:
+	var input_direction = Input.get_vector(
+		"move_left",
+		"move_right",
+		"move_forward",
+		"move_backward",
+	)
+	return (transform.basis * Vector3(input_direction.x, 0, input_direction.y)).normalized()
