@@ -38,6 +38,11 @@ _global_script_classes=[{
 "class": &"SkinSelectionControl",
 "language": &"GDScript",
 "path": "res://scripts/ui/ui_control_for_teste_1.gd"
+}, {
+"base": "CharacterBody3D",
+"class": &"ThirdPersonCharacter",
+"language": &"GDScript",
+"path": "res://projects/third_person_platform_character/scripts/third_person_platform_character.gd"
 }]
 _global_script_class_icons={
 "Dummy": "",
@@ -45,7 +50,8 @@ _global_script_class_icons={
 "HumanoidBody": "",
 "HumanoidCharacter": "",
 "ProjectCard": "",
-"SkinSelectionControl": ""
+"SkinSelectionControl": "",
+"ThirdPersonCharacter": ""
 }
 
 [application]
