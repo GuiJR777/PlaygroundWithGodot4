@@ -1,11 +1,23 @@
+class_name State
 extends Node
 
+var state_manager: StateManager = null
+var parent: ThirdPersonCharacter = null
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	state_manager = get_parent()
+	parent = state_manager.get_parent()
+
+func on_state_enter():
+	print("Enter State: ", self.name)
+	parent.animation_playback.travel(self.name)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func on_state_update():
 	pass
+
+
+func on_state_exit():
+	print("Exiting state: ", self.name)
+

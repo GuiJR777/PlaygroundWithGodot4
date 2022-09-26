@@ -39,6 +39,16 @@ _global_script_classes=[{
 "language": &"GDScript",
 "path": "res://scripts/ui/ui_control_for_teste_1.gd"
 }, {
+"base": "Node",
+"class": &"State",
+"language": &"GDScript",
+"path": "res://scripts/state_machine/state.gd"
+}, {
+"base": "Node",
+"class": &"StateManager",
+"language": &"GDScript",
+"path": "res://scripts/state_machine/state_manager.gd"
+}, {
 "base": "CharacterBody3D",
 "class": &"ThirdPersonCharacter",
 "language": &"GDScript",
@@ -51,6 +61,8 @@ _global_script_class_icons={
 "HumanoidCharacter": "",
 "ProjectCard": "",
 "SkinSelectionControl": "",
+"State": "",
+"StateManager": "",
 "ThirdPersonCharacter": ""
 }
 
@@ -71,7 +83,6 @@ DefaultTransition="*res://scenes/UI/components/default_transition.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/fullscreen=true
 window/size/always_on_top=true
 window/size/window_width_override=1920
 window/size/window_height_override=1080

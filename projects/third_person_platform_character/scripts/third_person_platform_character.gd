@@ -2,20 +2,28 @@ class_name ThirdPersonCharacter
 extends CharacterBody3D
 
 
+@onready var _animation_tree: AnimationTree = $humanoid/animation_tree
+@onready var animation_playback: AnimationNodeStateMachinePlayback = _animation_tree["parameters/playback"]
+
 @export var movement_speed: float = 5.0
 @export var jump_impulse: float = 4.5
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var is_moving: bool = false
+var use_gravity: bool = true
 
 
 func _physics_process(delta):
+	if use_gravity:
+		apply_gravity(delta)
+	
 	if get_movement_direction():
 		is_moving = true
 	else:
 		is_moving = false
-	print("Esta se movendo: "+str(is_moving))
+	
+	move_and_slide()
 
 
 func apply_gravity(delta) -> void:
