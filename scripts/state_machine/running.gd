@@ -4,7 +4,7 @@ extends State
 func on_state_enter():
 	print("Enter State: ", self.name)
 	parent.animation_playback.travel(self.name)
-	parent.max_speed *= 2
+	parent.max_speed = parent.max_running_speed
 
 func on_state_update():
 	if not parent.is_on_floor():
@@ -19,10 +19,6 @@ func on_state_update():
 		parent.animation_playback.travel(self.name)
 	
 	if not parent.is_moving:
-		state_manager.change_state("walking")
+		state_manager.change_state("idle")
 	
 	parent.apply_movement()
-
-func on_state_exit():
-	print("Exiting state: ", self.name)
-	parent.max_speed /= 2

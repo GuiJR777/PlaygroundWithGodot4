@@ -9,10 +9,15 @@ func _ready():
 	_current_state.on_state_enter()
 
 
-func change_state(state: String):
+func change_state(state_name: String):
 	if _current_state:
 		_current_state.on_state_exit()
-	_current_state = get_node(state)
+	
+	var new_state = get_node(state_name)
+	
+	if new_state:
+		_current_state = new_state
+
 	_current_state.on_state_enter()
 
 

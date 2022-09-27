@@ -32,7 +32,7 @@ _global_script_classes=[{
 "base": "CharacterBody3D",
 "class": &"PlayerMovements",
 "language": &"GDScript",
-"path": "res://projects/third_person_platform_character/scripts/player_movemens.gd"
+"path": "res://projects/third_person_platform_character/scripts/player_movements.gd"
 }, {
 "base": "VBoxContainer",
 "class": &"ProjectCard",

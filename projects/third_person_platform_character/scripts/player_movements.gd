@@ -3,7 +3,8 @@ class_name PlayerMovements
 
 
 
-@export var max_speed: float = 5.0
+@export var max_walk_speed: float = 6
+@export var max_running_speed: float = 16
 @export var jump_impulse: float = 4.5
 @export var acceleration: float = 70
 @export var friction: float = 60
@@ -11,14 +12,14 @@ class_name PlayerMovements
 @export var rotation_speed: float = 5
 @export var controller_sensitivity: float = 3
 
+var max_speed: float = 5.0
+var gravity = -(ProjectSettings.get_setting("physics/3d/default_gravity"))
 var spring_arm: SpringArm3D = null
 var pivot: Marker3D = null
-var gravity = -(ProjectSettings.get_setting("physics/3d/default_gravity"))
-var is_moving: bool = false
 var input_vector: Vector3 = Vector3.ZERO
 var direction: Vector3 = Vector3.ZERO
 var physics_delta: float = 0
-
+var is_moving: bool = false
 
 
 func get_input_vector() -> void:

@@ -10,6 +10,8 @@ class_name ThirdPersonCharacter
 
 
 func _ready():
+	max_speed = max_walk_speed
+	
 	spring_arm = $SpringArm3d
 	pivot = $pivot
 
