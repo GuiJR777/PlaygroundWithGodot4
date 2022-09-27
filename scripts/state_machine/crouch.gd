@@ -10,4 +10,5 @@ func on_state_update():
 		
 	if parent.is_moving:
 		print("Andando abaixado")
-		#state_manager.change_state("walk")
+	
+	parent.apply_friction()

@@ -1,5 +1,5 @@
-class_name State
 extends Node
+class_name State
 
 var state_manager: StateManager = null
 var parent: ThirdPersonCharacter = null

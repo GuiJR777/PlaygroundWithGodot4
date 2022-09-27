@@ -16,5 +16,5 @@ func change_state(state: String):
 	_current_state.on_state_enter()
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	_current_state.on_state_update()

@@ -17,18 +17,18 @@ size = Vector3(50, 0.3, 50)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8hvtf"]
 size = Vector3(50, 0.3, 50)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_yyju4"]
-sky_top_color = Color(0.337255, 0.807843, 0.921569, 1)
-sky_horizon_color = Color(0.0784314, 0.501961, 0.717647, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qssg5"]
+sky_top_color = Color(0.529412, 0.807843, 0.921569, 1)
+sky_horizon_color = Color(0.642157, 0.708824, 0.735294, 1)
 ground_bottom_color = Color(0.0392157, 0.027451, 0.0196078, 1)
-ground_horizon_color = Color(0.0784314, 0.501961, 0.717647, 1)
+ground_horizon_color = Color(0.642157, 0.708824, 0.735294, 1)
 
-[sub_resource type="Sky" id="Sky_h1l7p"]
-sky_material = SubResource("ProceduralSkyMaterial_yyju4")
+[sub_resource type="Sky" id="Sky_onud8"]
+sky_material = SubResource("ProceduralSkyMaterial_qssg5")
 
-[sub_resource type="Environment" id="Environment_o2523"]
+[sub_resource type="Environment" id="Environment_xcn7x"]
 background_mode = 2
-sky = SubResource("Sky_h1l7p")
+sky = SubResource("Sky_onud8")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -51,10 +51,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.984808, -0.111619, 0.133022, 3.72529e-09, 0.766044, 0.642788, -0.173648, 0.633022, -0.754407, 0, 0, 0)
+light_energy = 0.8
 shadow_enabled = true
+directional_shadow_blend_splits = true
 
-[node name="env" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_o2523")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xcn7x")
 
 [node name="third_person_character" parent="." instance=ExtResource("3_p5bmj")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 4.90968, 7.77652)
