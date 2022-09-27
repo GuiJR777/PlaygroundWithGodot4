@@ -6,12 +6,12 @@ func on_state_update():
 		state_manager.change_state("falling")
 	
 	if Input.is_action_just_pressed("crouch"):
-		state_manager.change_state("idle")
+		state_manager.change_state("walking")
 	
 	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
-		state_manager.change_state("idle")
-		
-	if parent.is_moving:
-		state_manager.change_state("crouch_walk")
+		state_manager.change_state("walking")
+
+	if not parent.is_moving:
+		state_manager.change_state("crouch")
 	
-	parent.apply_friction()
+	parent.apply_movement()
