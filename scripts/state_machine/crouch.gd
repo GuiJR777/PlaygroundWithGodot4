@@ -8,7 +8,7 @@ func on_state_update():
 	if Input.is_action_just_pressed("crouch"):
 		state_manager.change_state("idle")
 	
-	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
+	if Input.is_action_just_pressed("jump"):
 		state_manager.change_state("idle")
 		
 	if parent.is_moving:

@@ -8,7 +8,10 @@ func on_state_update():
 	if Input.is_action_just_pressed("crouch"):
 		state_manager.change_state("walking")
 	
-	if Input.is_action_just_pressed("jump") and parent.is_on_floor():
+	if Input.is_action_pressed("run"):
+		state_manager.change_state("running")
+	
+	if Input.is_action_just_pressed("jump"):
 		state_manager.change_state("walking")
 
 	if not parent.is_moving:
