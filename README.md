@@ -13,4 +13,4 @@ As mecânicas podem ser acessadas na tela "Projetos" e os mini games na tela "Mi
 ##### clique para acessar
 
 - [**Skin Changer:**   ✅](https://github.com/GuiJR777/PlaygroundWithGodot4/tree/master/scenes/skin_changer)
-- [**3D Platform Character:**  ✅](https://github.com/GuiJR777/PlaygroundWithGodot4/tree/add-plataform-player-3d-with-state-machine/projects/third_person_platform_character)
+- [**3D Platform Character:**  ✅](https://github.com/GuiJR777/PlaygroundWithGodot4/blob/master/projects/third_person_platform_character)
