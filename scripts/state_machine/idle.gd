@@ -2,7 +2,6 @@ extends State
 
 
 func on_state_enter():
-	print("Enter State: ", self.name)
 	parent.animation_playback.travel(self.name)
 	parent.max_speed = parent.max_walk_speed
 

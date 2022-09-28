@@ -10,7 +10,6 @@ func _ready():
 	parent = state_manager.get_parent()
 
 func on_state_enter():
-	print("Enter State: ", self.name)
 	parent.animation_playback.travel(self.name)
 
 
@@ -19,5 +18,5 @@ func on_state_update():
 
 
 func on_state_exit():
-	print("Exiting state: ", self.name)
+	pass
 
