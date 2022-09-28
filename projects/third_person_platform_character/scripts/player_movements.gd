@@ -2,7 +2,9 @@ extends CharacterBody3D
 class_name PlayerMovements
 
 
-
+@export var spring_arm: SpringArm3D = null
+@export var pivot: Marker3D = null
+@export var floor_distance_checker: RayCast3D = null
 @export var max_walk_speed: float = 6
 @export var max_running_speed: float = 16
 @export var jump_impulse: float = 4.5
@@ -14,12 +16,11 @@ class_name PlayerMovements
 
 var max_speed: float = 5.0
 var gravity = -(ProjectSettings.get_setting("physics/3d/default_gravity"))
-var spring_arm: SpringArm3D = null
-var pivot: Marker3D = null
 var input_vector: Vector3 = Vector3.ZERO
 var direction: Vector3 = Vector3.ZERO
 var physics_delta: float = 0
 var is_moving: bool = false
+var in_air: bool = false
 
 
 func get_input_vector() -> void:
@@ -52,14 +53,6 @@ func apply_gravity():
 	velocity.y = clamp(velocity.y, gravity, jump_impulse)
 	
 	
-	
-func jump():
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_impulse
-	if Input.is_action_just_released("jump") and velocity.y > jump_impulse / 2:
-		velocity.y = jump_impulse / 2
-		
-		
 func apply_controller_rotation():
 	var axis_vector = Vector2.ZERO
 	axis_vector.x = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
@@ -68,3 +61,17 @@ func apply_controller_rotation():
 	if InputEventJoypadMotion:
 		rotate_y(deg_to_rad(-axis_vector.x) * controller_sensitivity)
 		spring_arm.rotate_x(deg_to_rad(-axis_vector.y) * controller_sensitivity)
+		
+func is_in_air() -> bool:
+	if not floor_distance_checker.is_colliding():
+		return true
+		
+	if floor_distance_checker.is_colliding() and not is_on_floor():
+		var floor_position = floor_distance_checker.get_collision_point()
+		var floor_distance = global_transform.origin.distance_to(floor_position)
+		
+		if floor_distance < 1:
+			return false
+		
+		return true
+	return false

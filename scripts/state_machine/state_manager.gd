@@ -16,6 +16,7 @@ func change_state(state_name: String):
 	var new_state = get_node(state_name)
 	
 	if new_state:
+		PlayerData.current_state = new_state.name
 		_current_state = new_state
 
 	_current_state.on_state_enter()

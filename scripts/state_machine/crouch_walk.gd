@@ -2,7 +2,7 @@ extends State
 
 
 func on_state_update():
-	if not parent.is_on_floor():
+	if parent.in_air:
 		state_manager.change_state("falling")
 	
 	if Input.is_action_just_pressed("crouch"):

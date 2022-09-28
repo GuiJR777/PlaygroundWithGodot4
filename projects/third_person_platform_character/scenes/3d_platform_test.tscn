@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cp4al2l72hk7b"]
+[gd_scene load_steps=20 format=3 uid="uid://cp4al2l72hk7b"]
 
 [ext_resource type="Texture2D" uid="uid://djcmovl3kmajv" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="1_go1r8"]
 [ext_resource type="Material" uid="uid://be3a3ld2snpvf" path="res://projects/third_person_platform_character/resources/white_material.tres" id="1_sc38g"]
@@ -7,6 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://b62a40dxi0mey" path="res://scenes/UI/components/fullscreen_button.tscn" id="4_3nhlw"]
 [ext_resource type="Material" uid="uid://csr3mxmx4ngi8" path="res://projects/third_person_platform_character/resources/red_chess_standard_material_3d.tres" id="4_cqotc"]
 [ext_resource type="PackedScene" uid="uid://ovxpxpqu8wx8" path="res://projects/third_person_platform_character/scenes/house.tscn" id="5_vhhpf"]
+[ext_resource type="Script" path="res://projects/third_person_platform_character/scripts/ui.gd" id="7_atcry"]
+[ext_resource type="PackedScene" uid="uid://d3d826vi5r1lo" path="res://scenes/UI/components/back_button.tscn" id="8_5a43x"]
+[ext_resource type="PackedScene" uid="uid://cftexlww4ggcm" path="res://scenes/UI/components/pause_button.tscn" id="9_th6ak"]
+[ext_resource type="PackedScene" uid="uid://cpfot5korx1b0" path="res://scenes/UI/components/pause_screen.tscn" id="10_o2lfx"]
+[ext_resource type="Theme" uid="uid://tpkjaiuml3dn" path="res://resources/bold.tres" id="12_htkkk"]
+[ext_resource type="Theme" uid="uid://8bxk187yykx0" path="res://resources/medium.tres" id="13_84dsg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rbv4l"]
+material = ExtResource("1_sc38g")
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_egi8v"]
+points = PackedVector3Array(-25, -0.25, -25, -25, 0.25, -25, 25, -0.25, -25, -25, -0.25, 25, -25, 0.25, 25, 25, 0.25, -25, 25, -0.25, 25, 25, 0.25, 25)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kw008"]
 albedo_texture = ExtResource("1_go1r8")
@@ -33,19 +46,17 @@ glow_enabled = true
 [node name="level" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
+[node name="floor" type="StaticBody3D" parent="level"]
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="level/floor"]
+mesh = SubResource("BoxMesh_rbv4l")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="level/floor"]
+shape = SubResource("ConvexPolygonShape3D_egi8v")
+
 [node name="blocks" type="CSGCombiner3D" parent="level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26638, 0)
 use_collision = true
-
-[node name="walls_and_floor" type="CSGBox3D" parent="level/blocks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0265903, 0.277429, 0.00712204)
-size = Vector3(50, 3, 50)
-material = ExtResource("1_sc38g")
-
-[node name="CsgBox3d" type="CSGBox3D" parent="level/blocks/walls_and_floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-operation = 2
-size = Vector3(49, 3, 49)
-material = ExtResource("1_sc38g")
 
 [node name="ramp" type="CSGPolygon3D" parent="level/blocks"]
 transform = Transform3D(15, 0, 0, 0, 5, 0, 0, 0, 10, -5.60385, -0.986872, -13.6252)
@@ -68,7 +79,7 @@ size = Vector3(8, 8, 5)
 material = SubResource("StandardMaterial3D_kw008")
 
 [node name="great_wall4" type="CSGBox3D" parent="level/blocks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.23872, 4.08595, 19.0982)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30726, 3.54171, 19.0982)
 size = Vector3(5, 10, 5)
 material = SubResource("StandardMaterial3D_kw008")
 
@@ -78,14 +89,14 @@ size = Vector3(5, 5, 10)
 material = SubResource("StandardMaterial3D_kw008")
 
 [node name="CsgTorus3d" type="CSGTorus3D" parent="level/blocks"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -13.8874, 10.5083, 19.3772)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -10.1858, 10.5083, 19.3772)
 inner_radius = 2.5
 outer_radius = 3.0
 sides = 12
 material = ExtResource("4_cqotc")
 
 [node name="house" parent="level" instance=ExtResource("5_vhhpf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.034, -0.914972, -16.5588)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.034, 0, -16.559)
 
 [node name="enviroment" type="Node3D" parent="."]
 
@@ -102,15 +113,19 @@ directional_shadow_blend_splits = true
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.1349, 4.90968, 1.70907)
 
 [node name="ui" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("7_atcry")
+
+[node name="pause_screen" parent="ui" instance=ExtResource("10_o2lfx")]
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="ui"]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -121,18 +136,93 @@ theme_override_constants/margin_top = 80
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 80
 
-[node name="fullscreen_button" parent="ui/MarginContainer" instance=ExtResource("4_3nhlw")]
-layout_mode = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/MarginContainer"]
+offset_left = 1556.0
+offset_top = 80.0
+offset_right = 1800.0
+offset_bottom = 200.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="fullscreen_button" parent="ui/MarginContainer/HBoxContainer" instance=ExtResource("4_3nhlw")]
 anchors_preset = 0
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 1680.0
-offset_top = 80.0
-offset_right = 1800.0
-offset_bottom = 200.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 120.0
+offset_bottom = 120.0
 grow_horizontal = 0
 grow_vertical = 1
-size_flags_horizontal = 8
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="back_button" parent="ui/MarginContainer/HBoxContainer" instance=ExtResource("8_5a43x")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 124.0
+offset_right = 244.0
+offset_bottom = 120.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ui/MarginContainer"]
+offset_left = 120.0
+offset_top = 80.0
+offset_right = 240.0
+offset_bottom = 200.0
+size_flags_horizontal = 0
 size_flags_vertical = 0
+
+[node name="pause_button" parent="ui/MarginContainer/HBoxContainer2" instance=ExtResource("9_th6ak")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 120.0
+offset_bottom = 120.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/MarginContainer"]
+offset_left = 120.0
+offset_top = 932.0
+offset_right = 685.0
+offset_bottom = 1000.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/MarginContainer/VBoxContainer"]
+offset_right = 565.0
+offset_bottom = 68.0
+theme_override_constants/separation = 48
+
+[node name="state_label" type="Label" parent="ui/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+offset_right = 228.0
+offset_bottom = 68.0
+size_flags_vertical = 8
+theme = ExtResource("12_htkkk")
+text = "Estado:"
+vertical_alignment = 2
+
+[node name="state" type="Label" parent="ui/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.486275, 0, 0.87451, 1)
+offset_left = 276.0
+offset_top = 16.0
+offset_right = 565.0
+offset_bottom = 68.0
+size_flags_vertical = 8
+theme = ExtResource("13_84dsg")
+text = "Estado Atual"
+vertical_alignment = 2

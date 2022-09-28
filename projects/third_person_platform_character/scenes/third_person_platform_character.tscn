@@ -177,8 +177,11 @@ bind/40/pose = Transform3D(1, -1.41561e-07, 3.67407e-07, 3.12924e-07, 6.51926e-0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7bgu4"]
 height = 2.15949
 
-[node name="third_person_character" type="CharacterBody3D"]
+[node name="third_person_character" type="CharacterBody3D" node_paths=PackedStringArray("spring_arm", "pivot", "floor_distance_checker")]
 script = ExtResource("1_8ph86")
+spring_arm = NodePath("SpringArm3d")
+pivot = NodePath("pivot")
+floor_distance_checker = NodePath("pivot/humanoid/brain/floor_checker")
 jump_impulse = 6.0
 
 [node name="pivot" type="Marker3D" parent="."]
@@ -531,8 +534,15 @@ monitorable = false
 transform = Transform3D(0.698836, 0, 0, 0, 0.925299, 7.82311e-08, 0, -7.23871e-08, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_a452u")
 
+[node name="brain" type="Node3D" parent="pivot/humanoid"]
+
+[node name="floor_checker" type="RayCast3D" parent="pivot/humanoid/brain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+target_position = Vector3(0, -10, 0)
+
 [node name="colission" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.995968, 0, 0, 0, 1.70584, 0, 0, 0, 1.04036, 0, 1.83139, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_7bgu4")
 
 [node name="SpringArm3d" type="SpringArm3D" parent="."]

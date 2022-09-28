@@ -57,6 +57,7 @@ func _update_screen() -> void:
 	variation_skin_label.text = selected_variation.capitalize()
 	animation_label.text = selected_animation.capitalize()
 	character_reference.get_node("humanoid").set_skin(selected_texture)
+	PlayerData.current_skin = selected_texture
 	character_reference.set_default_animation(selected_animation)
 
 func _set_new_index(actual_value: int, max_value: int, increse_value: bool = true) -> int:

@@ -7,7 +7,7 @@ func on_state_enter():
 	parent.max_speed = parent.max_running_speed
 
 func on_state_update():
-	if not parent.is_on_floor():
+	if parent.in_air:
 		state_manager.change_state("falling")
 	
 	if Input.is_action_just_pressed("jump"):
@@ -17,6 +17,9 @@ func on_state_update():
 		parent.animation_playback.travel("roll")
 		await get_tree().create_timer(1.2).timeout
 		parent.animation_playback.travel(self.name)
+	
+	if Input.is_action_just_released("run"):
+		state_manager.change_state("walking")
 	
 	if not parent.is_moving:
 		state_manager.change_state("idle")

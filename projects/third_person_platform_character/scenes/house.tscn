@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://ovxpxpqu8wx8"]
+[gd_scene load_steps=4 format=3 uid="uid://ovxpxpqu8wx8"]
 
-[ext_resource type="Material" uid="uid://be3a3ld2snpvf" path="res://projects/third_person_platform_character/resources/white_material.tres" id="1_6fc3w"]
 [ext_resource type="Material" uid="uid://thyx65vlads8" path="res://projects/third_person_platform_character/resources/new_standard_material_3d.tres" id="2_yn1wt"]
 [ext_resource type="Material" uid="uid://bfe575yerjg50" path="res://projects/third_person_platform_character/resources/red_standard_material_3d.tres" id="3_a7ecq"]
 
@@ -11,10 +10,6 @@ size = Vector3(10, 1, 8)
 
 [node name="CsgCombiner3d" type="CSGCombiner3D" parent="."]
 use_collision = true
-
-[node name="floor" type="CSGBox3D" parent="CsgCombiner3d"]
-size = Vector3(8, 0.3, 8)
-material = ExtResource("1_6fc3w")
 
 [node name="wall" type="CSGBox3D" parent="CsgCombiner3d"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91915, 1.64196, 0)
@@ -130,12 +125,10 @@ mesh = SubResource("PrismMesh_5w6su")
 material = ExtResource("3_a7ecq")
 
 [node name="lights" type="Node3D" parent="."]
-visible = false
 
 [node name="light" type="OmniLight3D" parent="lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.887, 3, 2.403)
 light_color = Color(1, 1, 0.52549, 1)
-light_energy = 0.7
 light_size = 1.0
 
 [node name="light2" type="OmniLight3D" parent="lights"]

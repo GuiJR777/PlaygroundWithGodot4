@@ -10,6 +10,8 @@ class_name ThirdPersonCharacter
 
 
 func _ready():
+	var body: HumanoidBody = $pivot/humanoid
+	body.set_skin(PlayerData.current_skin)
 	max_speed = max_walk_speed
 	
 	spring_arm = $SpringArm3d
@@ -18,6 +20,8 @@ func _ready():
 
 func _physics_process(delta):
 	physics_delta = delta
+	
+	in_air = is_in_air()
 	
 	apply_controller_rotation()
 	get_input_vector()
