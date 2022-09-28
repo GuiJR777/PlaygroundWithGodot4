@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://cftexlww4ggcm"]
+
+[ext_resource type="Script" path="res://scripts/ui/components/pause_button.gd" id="1_8eqm1"]
+[ext_resource type="Script" path="res://scripts/ui/components/button_with_hint.gd" id="1_68skr"]
+[ext_resource type="Texture2D" uid="uid://dehctqb5oobfu" path="res://assets/UI/gameicons/PNG/Black/2x/pause.png" id="2_xcsrt"]
+[ext_resource type="Texture2D" uid="uid://vpsh0mysj4gx" path="res://assets/UI/gameicons/PNG/White/2x/pause.png" id="3_jeqd1"]
+[ext_resource type="Theme" uid="uid://fonxljnjj4ob" path="res://resources/extra_light.tres" id="4_bvifk"]
+
+[node name="pause_button" type="Control"]
+process_mode = 3
+custom_minimum_size = Vector2i(120, 120)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8eqm1")
+
+[node name="pause" type="Control" parent="."]
+custom_minimum_size = Vector2i(120, 120)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_68skr")
+text = "Pausar"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="button" type="TextureButton" parent="pause/VBoxContainer"]
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_xcsrt")
+texture_hover = ExtResource("3_jeqd1")
+
+[node name="hint" type="Label" parent="pause/VBoxContainer"]
+visible = false
+layout_mode = 2
+offset_left = 49.0
+offset_top = 104.0
+offset_right = 50.0
+offset_bottom = 260.0
+size_flags_horizontal = 4
+theme = ExtResource("4_bvifk")
+text = "Texto de Ajuda"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="button_up" from="pause/VBoxContainer/button" to="." method="_on_pause_button_up"]
+[connection signal="mouse_entered" from="pause/VBoxContainer/button" to="pause" method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="pause/VBoxContainer/button" to="pause" method="_on_button_mouse_exited"]

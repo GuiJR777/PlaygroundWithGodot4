@@ -1,0 +1,174 @@
+[gd_scene load_steps=4 format=3 uid="uid://ovxpxpqu8wx8"]
+
+[ext_resource type="Material" uid="uid://thyx65vlads8" path="res://projects/third_person_platform_character/resources/new_standard_material_3d.tres" id="2_yn1wt"]
+[ext_resource type="Material" uid="uid://bfe575yerjg50" path="res://projects/third_person_platform_character/resources/red_standard_material_3d.tres" id="3_a7ecq"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_5w6su"]
+size = Vector3(10, 1, 8)
+
+[node name="house" type="Node3D"]
+
+[node name="CsgCombiner3d" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="wall" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91915, 1.64196, 0)
+size = Vector3(0.15, 3, 8)
+material = ExtResource("2_yn1wt")
+
+[node name="wall2" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, -9.31323e-10, 0, 1, 0, 9.31323e-10, 0, 1, -4, 1.642, 0)
+size = Vector3(0.15, 3, 8)
+material = ExtResource("2_yn1wt")
+
+[node name="wall3" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0102374, 1.64196, -3.91921)
+size = Vector3(0.15, 3, 8)
+material = ExtResource("2_yn1wt")
+
+[node name="wall4" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.00135563, 1.64196, 3.91921)
+size = Vector3(0.15, 3, 8)
+material = ExtResource("2_yn1wt")
+
+[node name="door" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.2, 3.917)
+operation = 2
+size = Vector3(1, 2.1, 0.3)
+material = ExtResource("2_yn1wt")
+
+[node name="internal_wall" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71, 1.642, 3.344)
+size = Vector3(0.15, 3, 1)
+material = ExtResource("2_yn1wt")
+
+[node name="internal_wall2" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.275, 1.642, -2.599)
+size = Vector3(0.15, 3, 2.5)
+material = ExtResource("2_yn1wt")
+
+[node name="internal_wall3" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 1.642, 2.388)
+size = Vector3(0.15, 3, 3)
+material = ExtResource("2_yn1wt")
+
+[node name="internal_wall4" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 1.642, 1.876)
+size = Vector3(0.15, 3, 4)
+material = ExtResource("2_yn1wt")
+
+[node name="internal_wall5" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.853, 1.642, 0.971)
+size = Vector3(0.15, 3, 4.15)
+material = ExtResource("2_yn1wt")
+
+[node name="internal_wall6" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.886, 1.642, -0.197)
+size = Vector3(0.15, 3, 2.18)
+material = ExtResource("2_yn1wt")
+
+[node name="internal_wall7" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139, 1.642, -2.02)
+size = Vector3(0.15, 3, 3.7)
+material = ExtResource("2_yn1wt")
+
+[node name="internal_wall8" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9, 1.642, -2.02)
+size = Vector3(0.15, 3, 3.7)
+material = ExtResource("2_yn1wt")
+
+[node name="door2" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.557, 1.2, 0.988)
+operation = 2
+size = Vector3(0.8, 2.1, 0.3)
+material = ExtResource("2_yn1wt")
+
+[node name="door3" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.379, 1.2, 0.988)
+operation = 2
+size = Vector3(0.8, 2.1, 0.3)
+material = ExtResource("2_yn1wt")
+
+[node name="door4" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.618, 1.2, -0.209)
+operation = 2
+size = Vector3(0.8, 2.1, 0.3)
+material = ExtResource("2_yn1wt")
+
+[node name="door5" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.785, 1.2, 0.406)
+operation = 2
+size = Vector3(0.8, 2.1, 0.3)
+material = ExtResource("2_yn1wt")
+
+[node name="window" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.956, 1.6, -3.925)
+operation = 2
+size = Vector3(1.2, 1.2, 0.3)
+material = ExtResource("2_yn1wt")
+
+[node name="window2" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.856, 1.6, -3.925)
+operation = 2
+size = Vector3(1.2, 1.2, 0.3)
+material = ExtResource("2_yn1wt")
+
+[node name="window3" type="CSGBox3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.105, 1.6, -3.925)
+operation = 2
+size = Vector3(1.2, 1.2, 0.3)
+material = ExtResource("2_yn1wt")
+
+[node name="rooftop" type="CSGMesh3D" parent="CsgCombiner3d"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0377407, 3.65, 0)
+mesh = SubResource("PrismMesh_5w6su")
+material = ExtResource("3_a7ecq")
+
+[node name="lights" type="Node3D" parent="."]
+
+[node name="light" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.887, 3, 2.403)
+light_color = Color(1, 1, 0.52549, 1)
+light_size = 1.0
+
+[node name="light2" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.779, 3, 2.403)
+light_color = Color(1, 1, 0.52549, 1)
+light_energy = 0.7
+light_size = 1.0
+
+[node name="light3" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.313, 3, 2.288)
+light_color = Color(1, 1, 0.52549, 1)
+light_energy = 0.7
+light_size = 1.0
+
+[node name="light4" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.248, 3, -2.165)
+light_color = Color(1, 1, 0.52549, 1)
+light_energy = 0.7
+light_size = 1.0
+
+[node name="light5" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 3, -2.165)
+light_color = Color(1, 1, 0.52549, 1)
+light_energy = 0.7
+light_size = 1.0
+
+[node name="light6" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 3, 2.42)
+light_color = Color(1, 1, 0.52549, 1)
+light_energy = 0.7
+light_size = 1.0
+
+[node name="light7" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.862, 3, -1.845)
+light_color = Color(1, 1, 0.52549, 1)
+light_energy = 0.7
+light_size = 1.0
+
+[node name="light8" type="OmniLight3D" parent="lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.869, 3, -1.845)
+light_color = Color(1, 1, 0.52549, 1)
+light_energy = 0.7
+light_size = 1.0

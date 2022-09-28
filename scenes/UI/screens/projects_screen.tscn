@@ -9,4 +9,9 @@ cards = [{
 "image": "res://assets/UI/images/skin_changer.png",
 "scene_destiny": "res://scenes/skin_changer/change_skin_test.tscn",
 "title": "Skin Changer"
+}, {
+"description": "Modelo de personagem para game de plataforma 3D programado com uso de State Machine.",
+"image": "res://assets/UI/images/3d_platform_character.jpeg",
+"scene_destiny": "res://projects/third_person_platform_character/scenes/3d_platform_test.tscn",
+"title": "3D Platform Character"
 }]

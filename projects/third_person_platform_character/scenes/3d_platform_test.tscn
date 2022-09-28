@@ -1,0 +1,445 @@
+[gd_scene load_steps=28 format=3 uid="uid://cp4al2l72hk7b"]
+
+[ext_resource type="Texture2D" uid="uid://djcmovl3kmajv" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="1_go1r8"]
+[ext_resource type="Material" uid="uid://be3a3ld2snpvf" path="res://projects/third_person_platform_character/resources/white_material.tres" id="1_sc38g"]
+[ext_resource type="Material" uid="uid://ef8th42nd3u8" path="res://projects/third_person_platform_character/resources/purple_standard_material_3d.tres" id="2_2s66j"]
+[ext_resource type="PackedScene" uid="uid://dve48g6s3vd5x" path="res://projects/third_person_platform_character/scenes/third_person_platform_character.tscn" id="3_p5bmj"]
+[ext_resource type="PackedScene" uid="uid://b62a40dxi0mey" path="res://scenes/UI/components/fullscreen_button.tscn" id="4_3nhlw"]
+[ext_resource type="Material" uid="uid://csr3mxmx4ngi8" path="res://projects/third_person_platform_character/resources/red_chess_standard_material_3d.tres" id="4_cqotc"]
+[ext_resource type="PackedScene" uid="uid://ovxpxpqu8wx8" path="res://projects/third_person_platform_character/scenes/house.tscn" id="5_vhhpf"]
+[ext_resource type="Script" path="res://projects/third_person_platform_character/scripts/ui.gd" id="7_atcry"]
+[ext_resource type="PackedScene" uid="uid://d3d826vi5r1lo" path="res://scenes/UI/components/back_button.tscn" id="8_5a43x"]
+[ext_resource type="PackedScene" uid="uid://cftexlww4ggcm" path="res://scenes/UI/components/pause_button.tscn" id="9_th6ak"]
+[ext_resource type="PackedScene" uid="uid://cpfot5korx1b0" path="res://scenes/UI/components/pause_screen.tscn" id="10_o2lfx"]
+[ext_resource type="Theme" uid="uid://tpkjaiuml3dn" path="res://resources/bold.tres" id="12_htkkk"]
+[ext_resource type="Theme" uid="uid://8bxk187yykx0" path="res://resources/medium.tres" id="13_84dsg"]
+[ext_resource type="Texture2D" uid="uid://dyvc5n2yk24ig" path="res://assets/UI/icons_buttons/wasd.png" id="14_ydcgs"]
+[ext_resource type="Texture2D" uid="uid://d15golar13dbt" path="res://assets/UI/gameicons-expansion/PNG/Black/2x/mouse.png" id="15_d50kw"]
+[ext_resource type="Texture2D" uid="uid://wgkjl2vnlbrx" path="res://assets/UI/icons_buttons/spacebar.png" id="16_2qreg"]
+[ext_resource type="Texture2D" uid="uid://iu62kea6sqe3" path="res://assets/UI/icons_buttons/shift.svg" id="17_uf3nf"]
+[ext_resource type="Texture2D" uid="uid://b67rtg0r5nm8v" path="res://assets/UI/icons_buttons/ctrl.svg" id="18_ivlgj"]
+[ext_resource type="PackedScene" uid="uid://ctnl2hxsxcbi3" path="res://scenes/UI/components/button_with_hint.tscn" id="19_3iy03"]
+[ext_resource type="Texture2D" uid="uid://ygata4q6b1oa" path="res://assets/UI/gameicons/PNG/Black/2x/information.png" id="20_boi75"]
+[ext_resource type="Texture2D" uid="uid://bp0ww172q8p81" path="res://assets/UI/gameicons/PNG/White/2x/information.png" id="21_nxh3y"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rbv4l"]
+material = ExtResource("1_sc38g")
+size = Vector3(50, 0.5, 50)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_egi8v"]
+points = PackedVector3Array(-25, -0.25, -25, -25, 0.25, -25, 25, -0.25, -25, -25, -0.25, 25, -25, 0.25, 25, 25, 0.25, -25, 25, -0.25, 25, 25, 0.25, 25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kw008"]
+albedo_texture = ExtResource("1_go1r8")
+uv1_triplanar = true
+uv1_world_triplanar = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qssg5"]
+sky_top_color = Color(0.529412, 0.807843, 0.921569, 1)
+sky_horizon_color = Color(0.642157, 0.708824, 0.735294, 1)
+ground_bottom_color = Color(0.0392157, 0.027451, 0.0196078, 1)
+ground_horizon_color = Color(0.642157, 0.708824, 0.735294, 1)
+
+[sub_resource type="Sky" id="Sky_onud8"]
+sky_material = SubResource("ProceduralSkyMaterial_qssg5")
+
+[sub_resource type="Environment" id="Environment_xcn7x"]
+background_mode = 2
+sky = SubResource("Sky_onud8")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="3d_platform_test" type="Node3D"]
+
+[node name="level" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="floor" type="StaticBody3D" parent="level"]
+
+[node name="MeshInstance3d" type="MeshInstance3D" parent="level/floor"]
+mesh = SubResource("BoxMesh_rbv4l")
+
+[node name="CollisionShape3d" type="CollisionShape3D" parent="level/floor"]
+shape = SubResource("ConvexPolygonShape3D_egi8v")
+
+[node name="blocks" type="CSGCombiner3D" parent="level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26638, 0)
+use_collision = true
+
+[node name="ramp" type="CSGPolygon3D" parent="level/blocks"]
+transform = Transform3D(15, 0, 0, 0, 5, 0, 0, 0, 10, -5.60385, -0.986872, -13.6252)
+polygon = PackedVector2Array(0, 0, 0.00318277, 0.00989437, 1, 1, 1, 0)
+material = ExtResource("2_2s66j")
+
+[node name="great_wall" type="CSGBox3D" parent="level/blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0525, 1.49297, 0.10644)
+size = Vector3(5, 5, 25)
+material = SubResource("StandardMaterial3D_kw008")
+
+[node name="great_wall2" type="CSGBox3D" parent="level/blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7751, 2.06656, 19.0982)
+size = Vector3(8, 6, 5)
+material = SubResource("StandardMaterial3D_kw008")
+
+[node name="great_wall3" type="CSGBox3D" parent="level/blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60255, 2.97885, 19.0982)
+size = Vector3(8, 8, 5)
+material = SubResource("StandardMaterial3D_kw008")
+
+[node name="great_wall4" type="CSGBox3D" parent="level/blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.30726, 3.54171, 19.0982)
+size = Vector3(5, 10, 5)
+material = SubResource("StandardMaterial3D_kw008")
+
+[node name="great_wall5" type="CSGBox3D" parent="level/blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5408, 1.47024, -19.0097)
+size = Vector3(5, 5, 10)
+material = SubResource("StandardMaterial3D_kw008")
+
+[node name="CsgTorus3d" type="CSGTorus3D" parent="level/blocks"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -10.1858, 10.5083, 19.3772)
+inner_radius = 2.5
+outer_radius = 3.0
+sides = 12
+material = ExtResource("4_cqotc")
+
+[node name="house" parent="level" instance=ExtResource("5_vhhpf")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -17.034, 0, -16.559)
+
+[node name="enviroment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="enviroment"]
+environment = SubResource("Environment_xcn7x")
+
+[node name="sun" type="DirectionalLight3D" parent="enviroment"]
+transform = Transform3D(-0.984808, -0.111619, 0.133022, 3.72529e-09, 0.766044, 0.642788, -0.173648, 0.633022, -0.754406, -12.1349, 0, -6.06745)
+light_energy = 0.8
+shadow_enabled = true
+directional_shadow_blend_splits = true
+
+[node name="third_person_character" parent="." instance=ExtResource("3_p5bmj")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -12.1349, 4.90968, 1.70907)
+
+[node name="ui" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_atcry")
+
+[node name="pause_screen" parent="ui" instance=ExtResource("10_o2lfx")]
+visible = false
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ui"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/MarginContainer"]
+layout_mode = 2
+offset_left = 1556.0
+offset_top = 80.0
+offset_right = 1800.0
+offset_bottom = 200.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="fullscreen_button" parent="ui/MarginContainer/HBoxContainer" instance=ExtResource("4_3nhlw")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 120.0
+offset_bottom = 120.0
+grow_horizontal = 0
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="back_button" parent="ui/MarginContainer/HBoxContainer" instance=ExtResource("8_5a43x")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 124.0
+offset_right = 244.0
+offset_bottom = 120.0
+grow_horizontal = 1
+grow_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ui/MarginContainer"]
+layout_mode = 2
+offset_left = 120.0
+offset_top = 80.0
+offset_right = 240.0
+offset_bottom = 200.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="pause_button" parent="ui/MarginContainer/HBoxContainer2" instance=ExtResource("9_th6ak")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 120.0
+offset_bottom = 120.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ui/MarginContainer"]
+layout_mode = 2
+offset_left = 120.0
+offset_top = 932.0
+offset_right = 685.0
+offset_bottom = 1000.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 565.0
+offset_bottom = 68.0
+theme_override_constants/separation = 48
+
+[node name="state_label" type="Label" parent="ui/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_right = 228.0
+offset_bottom = 68.0
+size_flags_vertical = 8
+theme = ExtResource("12_htkkk")
+text = "Estado:"
+vertical_alignment = 2
+
+[node name="state" type="Label" parent="ui/MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.486275, 0, 0.87451, 1)
+layout_mode = 2
+offset_left = 276.0
+offset_top = 16.0
+offset_right = 565.0
+offset_bottom = 68.0
+size_flags_vertical = 8
+theme = ExtResource("13_84dsg")
+text = "Estado Atual"
+vertical_alignment = 2
+
+[node name="information_panel" type="VBoxContainer" parent="ui/MarginContainer"]
+layout_mode = 2
+offset_left = 1680.0
+offset_top = 880.0
+offset_right = 1800.0
+offset_bottom = 1000.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 48
+
+[node name="information_button" parent="ui/MarginContainer/information_panel" instance=ExtResource("19_3iy03")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 120.0
+offset_bottom = 120.0
+text = "Ver Comandos"
+
+[node name="VBoxContainer" parent="ui/MarginContainer/information_panel/information_button" index="0"]
+layout_mode = 1
+
+[node name="button" parent="ui/MarginContainer/information_panel/information_button/VBoxContainer" index="0"]
+layout_mode = 2
+texture_normal = ExtResource("20_boi75")
+texture_hover = ExtResource("21_nxh3y")
+
+[node name="hint" parent="ui/MarginContainer/information_panel/information_button/VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="ui/MarginContainer/information_panel"]
+visible = false
+layout_mode = 2
+offset_top = 168.0
+offset_right = 333.0
+offset_bottom = 684.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui/MarginContainer/information_panel/VBoxContainer2"]
+layout_mode = 2
+offset_right = 333.0
+offset_bottom = 100.0
+theme_override_constants/separation = 48
+
+[node name="TextureRect" type="TextureRect" parent="ui/MarginContainer/information_panel/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2i(100, 100)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("14_ydcgs")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ui/MarginContainer/information_panel/VBoxContainer2/HBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_left = 148.0
+offset_top = 24.0
+offset_right = 293.0
+offset_bottom = 76.0
+size_flags_horizontal = 4
+theme = ExtResource("13_84dsg")
+text = "Mover"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ui/MarginContainer/information_panel/VBoxContainer2"]
+layout_mode = 2
+offset_top = 104.0
+offset_right = 333.0
+offset_bottom = 204.0
+theme_override_constants/separation = 48
+
+[node name="TextureRect" type="TextureRect" parent="ui/MarginContainer/information_panel/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2i(100, 100)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("15_d50kw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ui/MarginContainer/information_panel/VBoxContainer2/HBoxContainer2"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_left = 148.0
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 76.0
+size_flags_horizontal = 4
+theme = ExtResource("13_84dsg")
+text = "Câmera
+"
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ui/MarginContainer/information_panel/VBoxContainer2"]
+layout_mode = 2
+offset_top = 208.0
+offset_right = 333.0
+offset_bottom = 308.0
+theme_override_constants/separation = 48
+
+[node name="TextureRect" type="TextureRect" parent="ui/MarginContainer/information_panel/VBoxContainer2/HBoxContainer3"]
+custom_minimum_size = Vector2i(100, 100)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("16_2qreg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ui/MarginContainer/information_panel/VBoxContainer2/HBoxContainer3"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_left = 148.0
+offset_top = 24.0
+offset_right = 268.0
+offset_bottom = 76.0
+size_flags_horizontal = 4
+theme = ExtResource("13_84dsg")
+text = "Pular
+"
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ui/MarginContainer/information_panel/VBoxContainer2"]
+layout_mode = 2
+offset_top = 312.0
+offset_right = 333.0
+offset_bottom = 412.0
+theme_override_constants/separation = 48
+
+[node name="TextureRect" type="TextureRect" parent="ui/MarginContainer/information_panel/VBoxContainer2/HBoxContainer4"]
+custom_minimum_size = Vector2i(100, 100)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("17_uf3nf")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ui/MarginContainer/information_panel/VBoxContainer2/HBoxContainer4"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_left = 148.0
+offset_top = 24.0
+offset_right = 291.0
+offset_bottom = 76.0
+size_flags_horizontal = 4
+theme = ExtResource("13_84dsg")
+text = "Correr
+"
+vertical_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ui/MarginContainer/information_panel/VBoxContainer2"]
+layout_mode = 2
+offset_top = 416.0
+offset_right = 333.0
+offset_bottom = 516.0
+theme_override_constants/separation = 48
+
+[node name="TextureRect" type="TextureRect" parent="ui/MarginContainer/information_panel/VBoxContainer2/HBoxContainer5"]
+custom_minimum_size = Vector2i(100, 100)
+layout_mode = 2
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("18_ivlgj")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ui/MarginContainer/information_panel/VBoxContainer2/HBoxContainer5"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+offset_left = 148.0
+offset_top = 24.0
+offset_right = 333.0
+offset_bottom = 76.0
+size_flags_horizontal = 4
+theme = ExtResource("13_84dsg")
+text = "Agachar
+"
+vertical_alignment = 1
+
+[connection signal="button_up" from="ui/MarginContainer/information_panel/information_button/VBoxContainer/button" to="ui" method="_on_information_button_up"]
+
+[editable path="ui/MarginContainer/information_panel/information_button"]
