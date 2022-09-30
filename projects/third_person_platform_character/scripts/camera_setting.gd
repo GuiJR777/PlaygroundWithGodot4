@@ -27,4 +27,5 @@ func _unhandled_input(event):
 		
 		parent.rotate_y(angle_to_rotate_body)
 		rotate_x(angle_to_rotate_camera)
+		rotation.z = 0
 		rotation.x = clamp(rotation.x, deg_to_rad(-75), deg_to_rad(75))

@@ -5,12 +5,12 @@ class_name ThirdPersonCharacter
 @onready var _animation_tree: AnimationTree = $pivot/humanoid/animation_tree
 @onready var animation_playback: AnimationNodeStateMachinePlayback = _animation_tree["parameters/playback"]
 
+@export var body: Node3D = null
 @export var use_gravity: bool = true
 
 
 
 func _ready():
-	var body: HumanoidBody = $pivot/humanoid
 	body.set_skin(PlayerData.current_skin)
 	max_speed = max_walk_speed
 	

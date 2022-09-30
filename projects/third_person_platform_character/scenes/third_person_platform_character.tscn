@@ -177,8 +177,9 @@ bind/40/pose = Transform3D(1, -1.41561e-07, 3.67407e-07, 3.12924e-07, 6.51926e-0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7bgu4"]
 height = 2.15949
 
-[node name="third_person_character" type="CharacterBody3D" node_paths=PackedStringArray("spring_arm", "pivot", "floor_distance_checker")]
+[node name="third_person_character" type="CharacterBody3D" node_paths=PackedStringArray("body", "spring_arm", "pivot", "floor_distance_checker")]
 script = ExtResource("1_8ph86")
+body = NodePath("pivot/humanoid")
 spring_arm = NodePath("SpringArm3d")
 pivot = NodePath("pivot")
 floor_distance_checker = NodePath("pivot/humanoid/brain/floor_checker")
@@ -186,9 +187,10 @@ jump_impulse = 6.0
 
 [node name="pivot" type="Marker3D" parent="."]
 
-[node name="humanoid" type="Node3D" parent="pivot"]
+[node name="humanoid" type="Node3D" parent="pivot" node_paths=PackedStringArray("body")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("2_7evhh")
+body = NodePath("Armature/GeneralSkeleton/mesh")
 
 [node name="Armature" type="Node3D" parent="pivot/humanoid"]
 
@@ -503,7 +505,7 @@ transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 
 visible = false
 
 [node name="head_attach" type="BoneAttachment3D" parent="pivot/humanoid/hit_boxes"]
-transform = Transform3D(-0.999586, -0.0261147, -0.0121147, -0.0216215, 0.958881, -0.282984, 0.0190066, -0.282605, -0.959048, -0.0267723, 2.76494, -0.282621)
+transform = Transform3D(1, -1.44948e-11, 5.47682e-12, 1.44948e-11, 1, -2.21567e-08, -5.47682e-12, 2.21567e-08, 1, -2.11392e-05, 2.90787, 0.087134)
 bone_name = "mixamorig_HeadTop_End"
 bone_idx = 6
 use_external_skeleton = true
@@ -519,7 +521,7 @@ transform = Transform3D(0.931332, 0, 0, 0, 1.19414, 2.19095e-07, 0, -2.22426e-07
 shape = SubResource("SphereShape3D_1xki5")
 
 [node name="body_attach" type="BoneAttachment3D" parent="pivot/humanoid/hit_boxes"]
-transform = Transform3D(-0.99985, -0.0170872, -0.00273654, -0.0161879, 0.979436, -0.201107, 0.00611663, -0.201033, -0.979565, -0.00561239, 1.78119, 0.032511)
+transform = Transform3D(1, -7.27568e-12, 3.62941e-12, 7.27568e-12, 1, -7.25551e-09, -3.62941e-12, 7.25551e-09, 1, -4.66077e-07, 1.87182, -0.00219155)
 bone_name = "Chest"
 bone_idx = 2
 use_external_skeleton = true
@@ -546,13 +548,12 @@ visible = false
 shape = SubResource("CapsuleShape3D_7bgu4")
 
 [node name="SpringArm3d" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.73555, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 spring_length = 6.0
 script = ExtResource("4_sl6v7")
 
 [node name="Camera3d" type="Camera3D" parent="SpringArm3d"]
-transform = Transform3D(1, 0, 0, 0, 0.952305, 0.305147, 0, -0.305147, 0.952305, 0, 0.518529, 4.53343)
-far = 200.0
+far = 600.0
 
 [node name="state_manager" type="Node" parent="."]
 script = ExtResource("5_gwcu5")
