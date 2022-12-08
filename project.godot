@@ -9,6 +9,16 @@
 config_version=5
 
 _global_script_classes=[{
+"base": "GridContainer",
+"class": &"Board",
+"language": &"GDScript",
+"path": "res://scripts/items/board.gd"
+}, {
+"base": "TextureButton",
+"class": &"Cell",
+"language": &"GDScript",
+"path": "res://scripts/items/cell.gd"
+}, {
 "base": "CharacterBody3D",
 "class": &"Dummy",
 "language": &"GDScript",
@@ -58,8 +68,15 @@ _global_script_classes=[{
 "class": &"ThirdPersonCharacter",
 "language": &"GDScript",
 "path": "res://projects/third_person_platform_character/scripts/third_person_platform_character.gd"
+}, {
+"base": "Node2D",
+"class": &"TicTacToeBoard",
+"language": &"GDScript",
+"path": "res://scripts/business_rules/tic_tac_toe.gd"
 }]
 _global_script_class_icons={
+"Board": "",
+"Cell": "",
 "Dummy": "",
 "FullscreenButton": "",
 "HumanoidBody": "",
@@ -69,14 +86,15 @@ _global_script_class_icons={
 "SkinSelectionControl": "",
 "State": "",
 "StateManager": "",
-"ThirdPersonCharacter": ""
+"ThirdPersonCharacter": "",
+"TicTacToeBoard": ""
 }
 
 [application]
 
 config/name="playground_with_godot_4"
 run/main_scene="res://scenes/UI/screens/presentation.tscn"
-config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/features=PackedStringArray("4.0")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -85,6 +103,7 @@ Constants="*res://scripts/global/constants.gd"
 Global="*res://scripts/global/global.gd"
 DefaultTransition="*res://scenes/UI/components/default_transition.tscn"
 PlayerData="*res://scripts/global/player_data.gd"
+TicTacToeGlobal="*res://scripts/global/tic_tac_toe_global.gd"
 
 [display]
 

@@ -311,22 +311,22 @@ load_path = "res://.godot/imported/worlnoise.bmp-3e989d5041eaa6471be4159cef76ea8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_84jlq"]
 shader = SubResource("Shader_7niad")
-shader_parameter/worlnoise = SubResource("CompressedTexture3D_fupch")
-shader_parameter/weathermap = SubResource("CompressedTexture2D_gawqm")
-shader_parameter/turbidity = 10.0
-shader_parameter/sun_disk_scale = 1.0
-shader_parameter/rayleigh_color = Color(0.26, 0.41, 0.58, 1)
-shader_parameter/rayleigh = 2.0
-shader_parameter/perlworlnoise = SubResource("CompressedTexture3D_4764s")
-shader_parameter/mie_eccentricity = 0.8
-shader_parameter/mie_color = Color(0.63, 0.77, 0.92, 1)
-shader_parameter/mie = 0.005
-shader_parameter/ground_color = Color(1, 1, 1, 1)
-shader_parameter/exposure = 0.1
-shader_parameter/cloud_coverage = 0.133
-shader_parameter/_time_scale = 1.0
-shader_parameter/_time_offset = 0.0
 shader_parameter/_density = 0.07
+shader_parameter/_time_offset = 0.0
+shader_parameter/_time_scale = 1.0
+shader_parameter/cloud_coverage = 0.133
+shader_parameter/exposure = 0.1
+shader_parameter/ground_color = Color(1, 1, 1, 1)
+shader_parameter/mie = 0.005
+shader_parameter/mie_color = Color(0.63, 0.77, 0.92, 1)
+shader_parameter/mie_eccentricity = 0.8
+shader_parameter/perlworlnoise = SubResource("CompressedTexture3D_4764s")
+shader_parameter/rayleigh = 2.0
+shader_parameter/rayleigh_color = Color(0.26, 0.41, 0.58, 1)
+shader_parameter/sun_disk_scale = 1.0
+shader_parameter/turbidity = 10.0
+shader_parameter/weathermap = SubResource("CompressedTexture2D_gawqm")
+shader_parameter/worlnoise = SubResource("CompressedTexture3D_fupch")
 
 [sub_resource type="Sky" id="Sky_40162"]
 sky_material = SubResource("ShaderMaterial_84jlq")

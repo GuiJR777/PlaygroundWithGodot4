@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://ndqhdepncrem"]
+
+[ext_resource type="Texture2D" uid="uid://dajqswkngf8bu" path="res://assets/UI/backgrounds/handpainted_07.png" id="1_dnj0c"]
+[ext_resource type="Script" path="res://scripts/business_rules/tic_tac_toe.gd" id="1_o632f"]
+[ext_resource type="Script" path="res://scripts/items/board.gd" id="3_n33wk"]
+[ext_resource type="PackedScene" uid="uid://do8cahop632na" path="res://scenes/components/cell.tscn" id="4_rnc3o"]
+
+[node name="tic_tac_toe" type="Node2D"]
+script = ExtResource("1_o632f")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Control" type="Control" parent="ParallaxBackground"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Control"]
+modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dnj0c")
+ignore_texture_size = true
+
+[node name="Tabuleiro" type="GridContainer" parent="ParallaxBackground/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -392.0
+offset_right = 392.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 32
+columns = 3
+script = ExtResource("3_n33wk")
+
+[node name="Cell" parent="ParallaxBackground/Control/Tabuleiro" instance=ExtResource("4_rnc3o")]
+layout_mode = 2
+
+[node name="Cell2" parent="ParallaxBackground/Control/Tabuleiro" instance=ExtResource("4_rnc3o")]
+layout_mode = 2
+offset_left = 272.0
+offset_right = 512.0
+
+[node name="Cell3" parent="ParallaxBackground/Control/Tabuleiro" instance=ExtResource("4_rnc3o")]
+layout_mode = 2
+offset_left = 544.0
+offset_right = 784.0
+
+[node name="Cell4" parent="ParallaxBackground/Control/Tabuleiro" instance=ExtResource("4_rnc3o")]
+layout_mode = 2
+offset_top = 272.0
+offset_bottom = 512.0
+
+[node name="Cell5" parent="ParallaxBackground/Control/Tabuleiro" instance=ExtResource("4_rnc3o")]
+layout_mode = 2
+offset_left = 272.0
+offset_top = 272.0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="Cell6" parent="ParallaxBackground/Control/Tabuleiro" instance=ExtResource("4_rnc3o")]
+layout_mode = 2
+offset_left = 544.0
+offset_top = 272.0
+offset_right = 784.0
+offset_bottom = 512.0
+
+[node name="Cell7" parent="ParallaxBackground/Control/Tabuleiro" instance=ExtResource("4_rnc3o")]
+layout_mode = 2
+offset_top = 544.0
+offset_bottom = 784.0
+
+[node name="Cell8" parent="ParallaxBackground/Control/Tabuleiro" instance=ExtResource("4_rnc3o")]
+layout_mode = 2
+offset_left = 272.0
+offset_top = 544.0
+offset_right = 512.0
+offset_bottom = 784.0
+
+[node name="Cell9" parent="ParallaxBackground/Control/Tabuleiro" instance=ExtResource("4_rnc3o")]
+layout_mode = 2
+offset_left = 544.0
+offset_top = 544.0
+offset_right = 784.0
+offset_bottom = 784.0
+
+[connection signal="cell_selected" from="ParallaxBackground/Control/Tabuleiro/Cell" to="." method="_on_cell_selected"]
+[connection signal="cell_selected" from="ParallaxBackground/Control/Tabuleiro/Cell2" to="." method="_on_cell_selected"]
+[connection signal="cell_selected" from="ParallaxBackground/Control/Tabuleiro/Cell3" to="." method="_on_cell_selected"]
+[connection signal="cell_selected" from="ParallaxBackground/Control/Tabuleiro/Cell4" to="." method="_on_cell_selected"]
+[connection signal="cell_selected" from="ParallaxBackground/Control/Tabuleiro/Cell5" to="." method="_on_cell_selected"]
+[connection signal="cell_selected" from="ParallaxBackground/Control/Tabuleiro/Cell6" to="." method="_on_cell_selected"]
+[connection signal="cell_selected" from="ParallaxBackground/Control/Tabuleiro/Cell7" to="." method="_on_cell_selected"]
+[connection signal="cell_selected" from="ParallaxBackground/Control/Tabuleiro/Cell8" to="." method="_on_cell_selected"]
+[connection signal="cell_selected" from="ParallaxBackground/Control/Tabuleiro/Cell9" to="." method="_on_cell_selected"]
